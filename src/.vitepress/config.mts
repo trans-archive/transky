@@ -22,6 +22,7 @@ export default defineConfig({
   ],
   lang: "zh-CN",
   cleanUrls: true,
+  srcExclude: ["**/SUMMARY.md"],
   lastUpdated: true,
   sitemap: {
     hostname: "https://proskynova.github.io",
@@ -35,6 +36,7 @@ export default defineConfig({
       useFolderTitleFromIndexFile: true,
       useFolderLinkFromIndexFile: true,
       collapsed: true,
+      excludeFiles: ["SUMMARY.md"],
     }),
     socialLinks: [{ icon: "github", link: "https://github.com/proskynova" }],
     footer: {

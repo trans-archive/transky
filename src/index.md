@@ -8,6 +8,12 @@ hero:
     - theme: brand
       text: 开始阅读
       link: /01/
+    - theme: brand
+      text: EPUB 版
+      link: /药娘的天空.epub
+    - theme: brand
+      text: PDF 版
+      link: /药娘的天空.pdf
     - theme: alt
       text: 在 GitHub 上查看
       link: https://github.com/proskynova
