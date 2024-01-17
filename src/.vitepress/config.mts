@@ -5,7 +5,21 @@ import { generateSidebar } from "vitepress-sidebar";
 export default defineConfig({
   title: "药娘的天空",
   description: "《药娘的天空》精修版",
-  head: [["link", { rel: "icon", href: "/progynova.png" }]],
+  head: [
+    ["link", { rel: "icon", href: "/progynova.png" }],
+    [
+      "script",
+      {
+        async: "",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-5W4FMPMLT3",
+      },
+    ],
+    [
+      "script",
+      {},
+      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-5W4FMPMLT3');",
+    ],
+  ],
   lang: "zh-CN",
   cleanUrls: true,
   lastUpdated: true,
