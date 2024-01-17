@@ -1,0 +1,18 @@
+[book]
+title = "药娘的天空"
+authors = ["乱世银娘"]
+description = "《药娘的天空》精修版"
+language = "zh-CN"
+
+[build]
+create-missing = false
+
+[output.epub]
+additional-css = ["theme/indent.css"]
+cover-image = "illustrations/cover.jpg"
+no-section-label = true
+
+[output.typst-pdf]
+pdf = true
+custom-template = "theme/template.typ"
+section-number = false

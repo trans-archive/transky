@@ -6,6 +6,7 @@
   "scripts": {
     "docs:dev": "vitepress dev src",
     "docs:build": "vitepress build src",
-    "docs:preview": "vitepress preview src"
+    "docs:preview": "vitepress preview src",
+    "build": "npm run docs:build && mdbook build && cp book/epub/*.epub src/.vitepress/dist/ && cp book/typst-pdf/*.pdf src/.vitepress/dist/"
   }
 }
