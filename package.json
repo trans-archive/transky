@@ -7,6 +7,6 @@
     "docs:dev": "vitepress dev src",
     "docs:build": "vitepress build src",
     "docs:preview": "vitepress preview src",
-    "build": "npm run docs:build && mdbook build && cp book/epub/*.epub src/.vitepress/dist/ && cp book/typst-pdf/*.pdf src/.vitepress/dist/"
+    "build": "npm run docs:build && find src/ -type f -name \"*.md\" ! -path \"src/index.md\" -exec sed -i \"/^---$/,/^---$/d\" {} \\; && mdbook build && cp book/epub/*.epub src/.vitepress/dist/ && cp book/typst-pdf/*.pdf src/.vitepress/dist/"
   }
 }
