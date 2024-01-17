@@ -30,14 +30,19 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "/progynova.png",
+    nav: [
+      { text: "正文", link: "/01/" },
+      { text: "关于", link: "/about" },
+    ],
     sidebar: generateSidebar({
       documentRootPath: "/src",
       useTitleFromFileHeading: true,
       useFolderTitleFromIndexFile: true,
       useFolderLinkFromIndexFile: true,
       collapsed: true,
-      excludeFiles: ["SUMMARY.md"],
+      excludeFiles: ["about.md", "SUMMARY.md"],
     }),
+    outline: false,
     socialLinks: [{ icon: "github", link: "https://github.com/proskynova" }],
     footer: {
       message: "基于 CC BY-NC-SA 4.0 许可发布",

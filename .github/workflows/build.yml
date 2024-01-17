@@ -79,7 +79,9 @@ jobs:
           unzip times_sans_serif.zip -d ~/.local/share/fonts/times_sans_serif
           fc-cache -rv
       - name: Build
-        run: npm run build
+        run: |
+          sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
+          npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
