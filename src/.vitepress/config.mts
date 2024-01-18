@@ -25,7 +25,7 @@ export default defineConfig({
   srcExclude: ["**/SUMMARY.md"],
   lastUpdated: true,
   sitemap: {
-    hostname: "https://proskynova.github.io",
+    hostname: "https://transky.top",
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
