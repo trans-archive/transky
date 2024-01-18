@@ -4,7 +4,7 @@ import { generateSidebar } from "vitepress-sidebar";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "药娘的天空",
-  description: "《药娘的天空》精修版",
+  description: "一个 2000 年代的跨性别者的故事。",
   head: [
     ["link", { rel: "icon", href: "/progynova.png" }],
     [
