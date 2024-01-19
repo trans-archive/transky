@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "vitepress-plugin-comment-with-giscus": "^1.1.11",
     "vitepress-plugin-image-viewer": "^1.1.2"
   },
   "devDependencies": {
