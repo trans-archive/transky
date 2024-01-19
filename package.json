@@ -1,5 +1,9 @@
 {
+  "dependencies": {
+    "vitepress-plugin-image-viewer": "^1.1.2"
+  },
   "devDependencies": {
+    "sass": "^1.70.0",
     "vitepress": "^1.0.0-rc.36",
     "vitepress-sidebar": "^1.18.6"
   },
