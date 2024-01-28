@@ -1,0 +1,23 @@
+<p align="center">
+<img src="src/public/progynova.png" alt="Progynova" width="128" height="128"/>
+</p>
+
+<h1 align="center">药娘的天空</h1>
+
+<p align="center">一个 2000 年代的跨性别者的故事。</p>
+
+<p align="center"><i>千篇一律的景，时长时短的影。无人相伴的路，惝恍迷离的舞。</i></p>
+
+<p align="center"><a href="https://transky.top/">开始阅读</a></p>
+
+## ✅ 内容完整
+
+基于作者一手原稿，内容完整无缺。
+
+## ⭕ 错误修正
+
+在不改变内容含义与行文风格的前提下最大限度地修正错误。
+
+## 🆓 自由发布
+
+基于 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可发布，自由开放。
