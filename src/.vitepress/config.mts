@@ -45,8 +45,8 @@ export default defineConfig({
     outline: false,
     socialLinks: [{ icon: "github", link: "https://github.com/proskynova" }],
     footer: {
-      message: "基于 CC BY-NC-SA 4.0 许可发布",
-      copyright: "版权所有 © 2023 Zh40Le1ZOOB",
+      message: "基于 <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans\">CC BY-NC-SA 4.0</a> 许可发布",
+      copyright: "版权所有 © 2023 <a href=\"https://github.com/Zh40Le1ZOOB\">Zh40Le1ZOOB</a>",
     },
     editLink: {
       pattern:
