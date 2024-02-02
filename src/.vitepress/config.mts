@@ -31,7 +31,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: "/progynova.png",
     nav: [
-      { text: "正文", link: "/01/" },
+      { text: "正文", link: "/foreword" },
       { text: "关于", link: "/about" },
     ],
     sidebar: generateSidebar({
@@ -39,14 +39,17 @@ export default defineConfig({
       useTitleFromFileHeading: true,
       useFolderTitleFromIndexFile: true,
       useFolderLinkFromIndexFile: true,
+      manualSortFileNameByPriority: ["foreword.md", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "afterword.md", "illustrations.md"],
       collapsed: true,
       excludeFiles: ["about.md", "SUMMARY.md"],
     }),
     outline: false,
     socialLinks: [{ icon: "github", link: "https://github.com/proskynova" }],
     footer: {
-      message: "基于 <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans\">CC BY-NC-SA 4.0</a> 许可发布",
-      copyright: "版权所有 © 2023 <a href=\"https://github.com/Zh40Le1ZOOB\">Zh40Le1ZOOB</a>",
+      message:
+        '基于 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans">CC BY-NC-SA 4.0</a> 许可发布',
+      copyright:
+        '版权所有 © 2023 <a href="https://github.com/Zh40Le1ZOOB">Zh40Le1ZOOB</a>',
     },
     editLink: {
       pattern:
