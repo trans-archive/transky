@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /01/
+      link: /foreword
     - theme: brand
       text: EPUB 版
       link: /药娘的天空.epub
