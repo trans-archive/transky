@@ -22,6 +22,7 @@ export default defineConfig({
   ],
   lang: "zh-CN",
   cleanUrls: true,
+  srcDir: "./src",
   srcExclude: ["**/SUMMARY.md"],
   lastUpdated: true,
   sitemap: {
