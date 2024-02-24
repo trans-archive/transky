@@ -8,7 +8,7 @@
 
 <p align="center"><i>千篇一律的景，时长时短的影。无人相伴的路，惝恍迷离的舞。</i></p>
 
-<p align="center"><a href="https://transky.top/">开始阅读</a></p>
+<p align="center"><a href="https://transky.mtf.wiki/">开始阅读</a></p>
 
 ## ✅ 内容完整
 

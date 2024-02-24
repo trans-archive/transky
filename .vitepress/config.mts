@@ -26,7 +26,7 @@ export default defineConfig({
   srcExclude: ["**/SUMMARY.md"],
   lastUpdated: true,
   sitemap: {
-    hostname: "https://transky.top",
+    hostname: "https://transky.mtf.wiki",
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
