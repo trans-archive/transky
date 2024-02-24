@@ -21,3 +21,7 @@
 ## 🆓 自由发布
 
 基于 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可发布，自由开放。
+
+# 做出贡献
+
+欲为本项目做出贡献，请先阅读[贡献指南](CONTRIBUTING.md)。
