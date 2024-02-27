@@ -2,7 +2,7 @@
 
 ## <a name="politeness"></a>用语规范
 
-开发者都是跨性别者，请使用尊重他人性别表达的代词，请尊重跨性别者。
+本项目贡献者包括跨性别者等多元文化群体，请在贡献时尊重ta人，使用友善礼貌的词语。
 
 ## <a name="commit"></a>提交规范
 
@@ -32,9 +32,9 @@ Type 字段描述提交的类型。此字段的可用值：
 
 - feat：添加一个新功能。
 
-- fix：修复一个漏洞。
+- fix：修复代码中与预期行为不一致的问题。
 
-- refactor：更改一处代码，既没有添加新功能也没有修复漏洞。
+- refactor：更改一处代码，没有造成功能及行为的变化。
 
 - style：更改一处代码风格（如缩进）。
 
@@ -68,14 +68,15 @@ Body 部分是提交说明的主体。此部分用于详细描述此提交。此
 
 #### <a name="footer"></a>Footer 部分
 
-Footer 部分用于承载额外内容，如关闭某个（或多个） issue
+Footer 部分用于承载额外内容，如关闭某个（或多个） issue，签名行。
 
 ```
-Closes #1, #2, #3
+Resolves #1, resolves #2, resolves #3
+Signed-off-by: Someone <someone@example.com>
 ```
 
 或其他不应放在 Header 和 Body 部分的内容。
 
 #### <a name="revert"></a>Revert
 
-Revert 提交的 Header 部分应以 `revert: ` 开头，后接被 revert 的提交的 Header，其 Body 部分应只有 `This reverts commit <hash>.`，`<hash>` 是被 revert 的提交的 SHA。
+Revert 提交的 Header 部分应以 `revert: ` 开头，后接被 revert 的提交的 Header，其 Body 部分应有 `This reverts commit <hash>.`，`<hash>` 是被 revert 的提交的 SHA，可以附加revert的理由。
