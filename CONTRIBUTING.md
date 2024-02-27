@@ -2,7 +2,7 @@
 
 ## <a name="politeness"></a>用语规范
 
-本项目贡献者包括跨性别者等多元文化群体，请在贡献时尊重ta人，使用友善礼貌的词语。
+本项目贡献者包括跨性别者等多元文化群体，请在贡献时尊重 ta 人，使用友善礼貌的词语。
 
 ## <a name="commit"></a>提交规范
 
@@ -68,7 +68,7 @@ Body 部分是提交说明的主体。此部分用于详细描述此提交。此
 
 #### <a name="footer"></a>Footer 部分
 
-Footer 部分用于承载额外内容，如关闭某个（或多个） issue，签名行。
+Footer 部分用于承载额外内容，如关闭某个（或多个）issue，签名行。
 
 ```
 Resolves #1, resolves #2, resolves #3
@@ -79,4 +79,4 @@ Signed-off-by: Someone <someone@example.com>
 
 #### <a name="revert"></a>Revert
 
-Revert 提交的 Header 部分应以 `revert: ` 开头，后接被 revert 的提交的 Header，其 Body 部分应有 `This reverts commit <hash>.`，`<hash>` 是被 revert 的提交的 SHA，可以附加revert的理由。
+Revert 提交的 Header 部分应以 `revert: ` 开头，后接被 revert 的提交的 Header，其 Body 部分应有 `This reverts commit <hash>.`，`<hash>` 是被 revert 的提交的 SHA，可以附加 revert 的理由。
