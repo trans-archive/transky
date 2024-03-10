@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - ".github/**"
+      - ".vitepress/**"
       - "src/**"
       - "theme/**"
       - "book.toml"
