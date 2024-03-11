@@ -8,6 +8,7 @@
     "Noto Sans Arabic",
     "Noto Sans Hebrew",
     "Noto Sans Devanagari",
+    "Noto Emoji",
   ),
 )
 
@@ -52,9 +53,7 @@
   }),
 )
 
-#align(center, text(17pt)[
-  *MDBOOK_TYPST_PDF_TITLE*
-])
+#page(background: image("illustrations/cover.jpg"), [])
 
 #pagebreak()
 #outline(depth: 2, indent: 1em)
