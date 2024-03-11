@@ -76,7 +76,7 @@ jobs:
           rm -fv ~/.local/share/fonts/Noto_Sans_Devanagari/NotoSansDevanagari-VariableFont_wdth,wght.ttf
           curl -sL -o Noto_Emoji.zip https://fonts.google.com/download?family=Noto%20Emoji
           unzip Noto_Emoji.zip -d ~/.local/share/fonts/Noto_Emoji
-          curl -sL -o times_sans_serif.zip  https://dl.dafont.com/dl/?f=times_sans_serif
+          curl -sL -o times_sans_serif.zip https://dl.dafont.com/dl/?f=times_sans_serif
           unzip times_sans_serif.zip -d ~/.local/share/fonts/times_sans_serif
           fc-cache -rv
       - name: Build
