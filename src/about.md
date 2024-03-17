@@ -13,8 +13,6 @@ comment: false
 
 许可证：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)
 
-![](./illustrations/auth.jpg)
-
 ## 项目信息
 
 地址：<https://github.com/proskynova>
