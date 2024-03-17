@@ -15,6 +15,8 @@ comment: false
 
 ## 项目信息
 
+> 本项目是《药娘的天空》修复项目，并非《药娘的天空》作品本身。
+
 地址：<https://github.com/proskynova>
 
 维护者：[Zh40Le1ZOOB](https://github.com/Zh40Le1ZOOB)
