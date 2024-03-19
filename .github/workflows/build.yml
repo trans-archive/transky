@@ -2,6 +2,8 @@ name: Build and deploy
 
 on:
   push:
+    branches:
+      - 'main'
     paths:
       - ".github/**"
       - ".vitepress/**"
@@ -83,10 +85,3 @@ jobs:
         run: |
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
           npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ".vitepress/dist/"
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
