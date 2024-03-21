@@ -81,7 +81,12 @@ jobs:
           curl -sL -o times_sans_serif.zip https://dl.dafont.com/dl/?f=times_sans_serif
           unzip times_sans_serif.zip -d ~/.local/share/fonts/times_sans_serif
           fc-cache -rv
+      - name: Install Calibre
+        run: |
+          sudo apt install -y libegl1 libopengl0 libxcb-cursor0
+          sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
       - name: Build
         run: |
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
           npm run build
+          ebook-convert .vitepress/dist/药娘的天空.epub .vitepress/dist/药娘的天空.mobi

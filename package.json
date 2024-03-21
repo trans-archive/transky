@@ -12,6 +12,6 @@
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
-    "build": "npm run docs:build && find src/ -type f -name \"*.md\" ! -path \"src/index.md\" -exec sed -i \"/^---$/,/^---$/d\" {} \\; && mdbook build && cp book/epub/*.epub .vitepress/dist/ && cp book/typst-pdf/*.pdf .vitepress/dist/"
+    "build": "npm run docs:build && find src/ -type f -name \"*.md\" ! -path \"src/index.md\" -exec sed -i \"/^---$/,/^---$/d\" {} \\; && mdbook build && cp book/epub/药娘的天空.epub .vitepress/dist/ && cp book/typst-pdf/药娘的天空.pdf .vitepress/dist/"
   }
 }
