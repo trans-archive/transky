@@ -12,11 +12,6 @@
   ),
 )
 
-#let invisible-heading(..args) = {
-  set text(size: 0pt, fill: white)
-  heading(numbering: none, ..args)
-}
-
 #show heading.where(level: 1): set align(center)
 
 #show heading.where(level: 2): set align(center)
