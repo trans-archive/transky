@@ -1,0 +1,37 @@
+name: Publish Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+       - uses: actions/checkout@v4
+         with:
+           fetch-depth: 0
+       - uses: pnpm/action-setup@v3
+         with:
+          version: latest
+       - uses: actions/setup-node@v4
+         with:
+          cache: npm
+       - name: Install
+         run: npm ci
+       - name: Build
+         run: |
+           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
+           npm run docs:build
+         env:
+           NODE_OPTIONS: --max_old_space_size=4096
+       - name: Publish to Cloudflare Pages
+         uses: cloudflare/pages-action@v1
+         with:
+           apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
+           accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}
+           projectName: proskynova-github-io
+           directory: .vitepress/dist
+           wranglerVersion: '3'
