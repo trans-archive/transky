@@ -12,9 +12,6 @@ hero:
     - theme: brand
       text: 开始阅读
       link: /foreword
-    - theme: brand
-      text: 下载电子书
-      link: https://github.com/proskynova/proskynova.github.io/releases/latest
     - theme: alt
       text: 在 GitHub 上查看
       link: https://github.com/proskynova

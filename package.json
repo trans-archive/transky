@@ -5,15 +5,13 @@
   },
   "devDependencies": {
     "sass": "^1.70.0",
-    "semantic-release": "^23.0.5",
     "vitepress": "^1.0.0-rc.36",
     "vitepress-sidebar": "^1.18.6"
   },
   "scripts": {
-    "web:dev": "vitepress dev",
-    "web:build": "vitepress build",
-    "web:preview": "vitepress preview",
-    "ebook:build": "find src/ -type f -name \"*.md\" ! -path \"src/index.md\" -exec sed -i \"/^---$/,/^---$/d\" {} \\; && mdbook build && mkdir book/mobi/ && ebook-convert book/epub/药娘的天空.epub book/mobi/药娘的天空.mobi",
-    "build": "npm run web:build && npm run ebook:build"
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview",
+    "build": "npm run docs:build && find src/ -type f -name \"*.md\" ! -path \"src/index.md\" -exec sed -i \"/^---$/,/^---$/d\" {} \\; && mdbook build && cp book/epub/药娘的天空.epub .vitepress/dist/ && cp book/typst-pdf/药娘的天空.pdf .vitepress/dist/"
   }
 }
