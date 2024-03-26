@@ -4,6 +4,7 @@
     "vitepress-plugin-image-viewer": "^1.1.2"
   },
   "devDependencies": {
+    "conventional-changelog-conventionalcommits": "^7.0.2",
     "sass": "^1.70.0",
     "semantic-release": "^23.0.5",
     "vitepress": "^1.0.0-rc.36",
