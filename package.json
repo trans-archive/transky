@@ -12,10 +12,8 @@
     "vitepress-sidebar": "^1.18.6"
   },
   "scripts": {
-    "web:dev": "vitepress dev",
-    "web:build": "vitepress build",
-    "web:preview": "vitepress preview",
-    "ebook:build": "find src/ -type f -name \"*.md\" ! -path \"src/index.md\" -exec sed -i \"/^---$/,/^---$/d\" {} \\; && mdbook build && mkdir book/mobi/ && ebook-convert book/epub/药娘的天空.epub book/mobi/药娘的天空.mobi",
-    "build": "pnpm run web:build && pnpm run ebook:build"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   }
 }
