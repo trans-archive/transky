@@ -6,8 +6,8 @@ on:
     branches:
       - "main"
     paths:
-      - ".github/workflows/web.yaml"
-      - ".github/workflows/cloudflare.yml"
+      - ".github/workflows/build-web.yaml"
+      - ".github/workflows/publish-cloudflare.yaml"
       - ".vitepress/**"
       - "src/**"
       - "package.json"
@@ -19,14 +19,15 @@ concurrency:
 
 jobs:
   build:
-    uses: ./.github/workflows/web.yaml
+    uses: ./.github/workflows/build-web.yaml
     
   publish:
-    needs: [ build ]
+    needs: build
     runs-on: ubuntu-latest
     environment: cloudflare-pages
     steps:
-      - uses: actions/download-artifact@v4
+      - name: Download artifact
+        uses: actions/download-artifact@v4
         with:
           name: website
           path: website

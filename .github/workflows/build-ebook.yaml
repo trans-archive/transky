@@ -2,18 +2,11 @@ name: Build ebook
 
 on:
   workflow_dispatch:
+  workflow_call:
   pull_request:
-  push:
-    branches:
-      - "main"
-    paths:
-      - ".github/workflows/ebook.yaml"
-      - "src/**"
-      - "theme/**"
-      - "book.toml"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ebook-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -43,16 +36,11 @@ jobs:
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
           NIXPKGS_ALLOW_UNFREE=1 nix build .# --impure
 
-      - name: Upload artifacts
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
+          name: ebook
           path: |
             result/share/transky-book/book/epub/药娘的天空.epub
-            result/share/transky-book/book/typst-pdf/药娘的天空.pdf
             result/share/transky-book/book/mobi/药娘的天空.mobi
-
-      - name: Release eBook
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: exit 0
+            result/share/transky-book/book/typst-pdf/药娘的天空.pdf
