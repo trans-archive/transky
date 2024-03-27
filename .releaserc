@@ -28,6 +28,7 @@ plugins:
           name: transky-${nextRelease.version}.mobi
         - path: book/typst-pdf/药娘的天空.pdf
           name: transky-${nextRelease.version}.pdf
+    - successComment: false
 preset: conventionalcommits
 presetConfig:
   - types:
