@@ -1,4 +1,4 @@
-name: Publish to Cloudflare
+name: Build website and publish
 
 on:
   workflow_dispatch:
@@ -7,17 +7,11 @@ on:
     branches:
       - "main"
     paths:
-      - ".github/workflows/publish.yaml"
+      - ".github/workflows/web.yaml"
       - ".vitepress/**"
       - "src/**"
-      - "theme/**"
-      - "package-lock.json"
       - "package.json"
-
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+      - "pnpm-lock.yaml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -38,20 +32,18 @@ jobs:
           version: latest
           run_install: true
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           cache: pnpm
           node-version: current
-
-      - name: Install
-        run: pnpm install
 
       - name: Build
         env:
           NODE_OPTIONS: --max_old_space_size=4096
         run: |
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
-          pnpm run web:build
+          pnpm run build
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1

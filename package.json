@@ -1,21 +1,17 @@
 {
   "dependencies": {
-    "vitepress-plugin-comment-with-giscus": "^1.1.11",
-    "vitepress-plugin-image-viewer": "^1.1.2"
+    "vitepress-plugin-comment-with-giscus": "^1.1.12",
+    "vitepress-plugin-image-viewer": "^1.1.3"
   },
   "devDependencies": {
-    "conventional-changelog-conventionalcommits": "^7.0.2",
-    "sass": "^1.70.0",
-    "semantic-release": "^23.0.5",
+    "sass": "^1.74.1",
     "viewerjs": "^1.11.6",
-    "vitepress": "^1.0.0-rc.36",
-    "vitepress-sidebar": "^1.18.6"
+    "vitepress": "^1.0.2",
+    "vitepress-sidebar": "^1.22.0"
   },
   "scripts": {
-    "web:dev": "vitepress dev",
-    "web:build": "vitepress build",
-    "web:preview": "vitepress preview",
-    "ebook:build": "find src/ -type f -name \"*.md\" ! -path \"src/index.md\" -exec sed -i \"/^---$/,/^---$/d\" {} \\; && mdbook build && mkdir book/mobi/ && ebook-convert book/epub/药娘的天空.epub book/mobi/药娘的天空.mobi",
-    "build": "pnpm run web:build && pnpm run ebook:build"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   }
 }

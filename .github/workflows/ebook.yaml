@@ -1,24 +1,22 @@
-name: Build releases
+name: Build ebook and release
 
 on:
   workflow_dispatch:
+    inputs:
+      release:
+        description: Publish a release
+        required: true
+        type: boolean
   pull_request:
   push:
     branches:
       - "main"
+      - "release"
     paths:
-      - ".github/workflows/build.yaml"
-      - ".vitepress/**"
+      - ".github/workflows/ebook.yaml"
       - "src/**"
       - "theme/**"
       - "book.toml"
-      - "package-lock.json"
-      - "package.json"
-
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -48,19 +46,48 @@ jobs:
 
       - name: Build
         run: |
-          
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
           NIXPKGS_ALLOW_UNFREE=1 nix build .# --impure
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
         with:
           path: |
             result/share/transky-book/book/epub/药娘的天空.epub
             result/share/transky-book/book/typst-pdf/药娘的天空.pdf
             result/share/transky-book/book/mobi/药娘的天空.mobi
 
-      - name: Release eBook
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+  release:
+    permissions:
+      contents: write
+    needs: build
+    if: github.event_name != 'pull_request' && ( ( github.event_name == 'push' && ! contains( github.event.head_commit.message, '[skip release]' ) ) || ( github.event_name == 'workflow_dispatch' && inputs.release ) )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: current
+
+      - name: Install semantic-release
+        run: |
+          rm pnpm-lock.yaml
+          pnpm add semantic-release conventional-changelog-conventionalcommits @saithodev/semantic-release-backmerge
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Release ebook
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: exit 0
+        run: pnpm exec semantic-release
