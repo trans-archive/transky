@@ -14,10 +14,10 @@ hero:
       link: /foreword
     - theme: brand
       text: 下载电子书
-      link: https://github.com/proskynova/proskynova.github.io/releases/latest
+      link: https://github.com/transky-book/transky/releases/latest
     - theme: alt
       text: 在 GitHub 上查看
-      link: https://github.com/proskynova
+      link: https://github.com/transky-book
   image:
     src: /progynova.png
     alt: Progynova
