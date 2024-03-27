@@ -1,4 +1,4 @@
-name: Build releases
+name: Build ebook
 
 on:
   workflow_dispatch:
@@ -7,18 +7,10 @@ on:
     branches:
       - "main"
     paths:
-      - ".github/workflows/build.yaml"
-      - ".vitepress/**"
+      - ".github/workflows/ebook.yaml"
       - "src/**"
       - "theme/**"
       - "book.toml"
-      - "package-lock.json"
-      - "package.json"
-
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -48,11 +40,11 @@ jobs:
 
       - name: Build
         run: |
-          
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
           NIXPKGS_ALLOW_UNFREE=1 nix build .# --impure
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
         with:
           path: |
             result/share/transky-book/book/epub/药娘的天空.epub
