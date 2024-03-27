@@ -99,6 +99,8 @@ Signed-off-by: Someone <someone@example.com>
 
 或其他不应放在 Header 和 Body 部分的内容。
 
+如果不希望提交触发 GitHub Actions，请在 Footer 部分添加 `[skip ci]`。
+
 #### <a name="revert"></a>Revert
 
 Revert 提交的 Header 部分应以 `revert: ` 开头，后接被 revert 的提交的 Header，其 Body 部分应有 `This reverts commit <hash>.`，`<hash>` 是被 revert 的提交的 SHA，可以附加 revert 的理由。
