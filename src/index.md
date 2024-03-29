@@ -14,10 +14,10 @@ hero:
       link: /foreword
     - theme: brand
       text: 下载电子书
-      link: https://github.com/proskynova/proskynova.github.io/releases/latest
+      link: https://github.com/transky-book/transky/releases/latest
     - theme: alt
       text: 在 GitHub 上查看
-      link: https://github.com/proskynova
+      link: https://github.com/transky-book/transky
   image:
     src: /progynova.png
     alt: Progynova
@@ -31,7 +31,7 @@ features:
     details: 在不改变内容含义与行文风格的前提下最大限度地修正错误。
   - icon: 🆓
     title: 自由发布
-    details: 基于 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans">CC BY-NC-SA 4.0</a> 许可发布，自由开放。
+    details: 基于 CC BY-NC-SA 4.0 许可发布，自由开放。
 ---
 
 <style>

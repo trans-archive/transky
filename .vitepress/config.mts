@@ -45,16 +45,16 @@ export default defineConfig({
       excludeFiles: ["about.md", "SUMMARY.md"],
     }),
     outline: false,
-    socialLinks: [{ icon: "github", link: "https://github.com/proskynova" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/transky-book/transky" }],
     footer: {
       message:
         '基于 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans">CC BY-NC-SA 4.0</a> 许可发布',
       copyright:
-        '版权所有 © 2023 <a href="https://github.com/Zh40Le1ZOOB">Zh40Le1ZOOB</a>',
+        '版权所有 © 2016-2024 <a href="https://www.weibo.com/p/1005055513855401">乱世银娘</a>、<a href="https://github.com/transky-book">Transky</a> 全体贡献者',
     },
     editLink: {
       pattern:
-        "https://github.com/proskynova/proskynova.github.io/edit/main/src/:path",
+        "https://github.com/transky-book/transky/edit/main/src/:path",
       text: "在 GitHub 上编辑此页面",
     },
     lastUpdated: {
