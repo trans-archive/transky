@@ -7,19 +7,13 @@ comment: false
 
 # 关于
 
-## 版权信息
+原稿仓库：<https://github.com/transky-book/raw>
 
-原作者：[乱世银娘](https://www.weibo.com/p/1005055513855401)
+项目仓库：<https://github.com/transky-book/transky>
 
-许可证：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)
+基于 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可发布。
 
-## 项目信息
-
-> 本项目是《药娘的天空》修复项目，并非《药娘的天空》作品本身。
-
-地址：<https://github.com/proskynova>
-
-维护者：[Zh40Le1ZOOB](https://github.com/Zh40Le1ZOOB)
+版权所有 © 2016-2024 [乱世银娘](https://www.weibo.com/p/1005055513855401)、[Transky](https://github.com/transky-book) 全体贡献者。
 
 ## 版本信息
 
