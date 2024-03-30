@@ -9,7 +9,7 @@ create-missing = false
 
 [output.epub]
 additional-css = ["theme/indent.css"]
-cover-image = "illustrations/cover.jpg"
+cover-image = "illustrations/epub-cover.jpg"
 no-section-label = true
 
 [output.typst-pdf]
