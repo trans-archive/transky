@@ -15,6 +15,6 @@
     "web:build": "vitepress build",
     "web:preview": "vitepress preview",
     "ebook:build": "find src/ -type f -name \"*.md\" ! -path \"src/index.md\" -exec sed -i \"/^---$/,/^---$/d\" {} \\; && mdbook build && mkdir book/mobi/ && ebook-convert book/epub/药娘的天空.epub book/mobi/药娘的天空.mobi",
-    "build": "npm run web:build && npm run ebook:build"
+    "build": "pnpm run web:build && pnpm run ebook:build"
   }
 }
