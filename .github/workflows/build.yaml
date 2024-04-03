@@ -37,10 +37,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: current
-          cache: npm
+          cache: pnpm
 
-      - name: Install node packages
-        run: npm ci
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+          run_install: true
 
       - name: Install mdBook
         uses: baptiste0928/cargo-install@v2
@@ -98,7 +101,7 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=4096
         run: |
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
-          npm run build
+          pnpm run build
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -112,4 +115,4 @@ jobs:
       - name: Release eBook
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: npx semantic-release
+        run: pnpm exec semantic-release
