@@ -22,6 +22,9 @@ devDependencies:
   semantic-release:
     specifier: ^23.0.5
     version: 23.0.6
+  viewerjs:
+    specifier: ^1.11.6
+    version: 1.11.6
   vitepress:
     specifier: ^1.0.0-rc.36
     version: 1.0.1(@algolia/client-search@4.22.1)(sass@1.72.0)(search-insights@2.13.0)
@@ -2926,7 +2929,6 @@ packages:
 
   /viewerjs@1.11.6:
     resolution: {integrity: sha512-TlhdSp2oEOLFXvEp4psKaeTjR5zBjTRcM/sHUN8PkV1UWuY8HKC8n7GaVdW5Xqnwdr/F1OmzLik1QwDjI4w/nw==}
-    dev: false
 
   /vite@5.2.6(sass@1.72.0):
     resolution: {integrity: sha512-FPtnxFlSIKYjZ2eosBQamz4CbyrTizbZ3hnGJlh/wMtCrlp1Hah6AzBLjGI5I2urTfNnpovpHdrL6YRuBOPnCA==}
