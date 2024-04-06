@@ -1,0 +1,64 @@
+name: Publish to Cloudflare
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/publish.yaml"
+      - ".vitepress/**"
+      - "src/**"
+      - "theme/**"
+      - "package-lock.json"
+      - "package.json"
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: "publish"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+          run_install: true
+
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          node-version: current
+
+      - name: Install
+        run: pnpm install
+
+      - name: Build
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+        run: |
+          sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
+          pnpm run web:build
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}
+          projectName: transky-book
+          directory: .vitepress/dist/
+          wranglerVersion: 3
