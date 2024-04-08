@@ -21,7 +21,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: "build"
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -33,80 +33,37 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+      - name: Install nix
+        uses: cachix/install-nix-action@v26
         with:
-          version: latest
-          run_install: true
+          nix_path: "${{ matrix.nixPath }}"
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v4
+      - name: Setup cachix
+        uses: cachix/cachix-action@v14
         with:
-          cache: pnpm
-          node-version: current
+          name: cryolitia
+          extraPullNames: nix-community
 
-      - name: Install
-        run: pnpm install
-
-      - name: Install mdBook
-        uses: baptiste0928/cargo-install@v2
-        with:
-          crate: mdbook
-          git: https://github.com/rust-lang/mdBook
-
-      - name: Install mdbook-epub
-        uses: baptiste0928/cargo-install@v2
-        with:
-          crate: mdbook-epub
-          git: https://github.com/Michael-F-Bryan/mdbook-epub
-
-      - name: Install mdbook-typst-pdf
-        uses: baptiste0928/cargo-install@v2
-        with:
-          crate: mdbook-typst-pdf
-          git: https://github.com/KaiserY/mdbook-typst-pdf
-
-      - name: Install fonts
-        run: |
-          mkdir -p ~/.local/share/fonts/
-          curl -sL -o Noto_Sans.zip https://fonts.google.com/download?family=Noto%20Sans
-          unzip Noto_Sans.zip -d ~/.local/share/fonts/Noto_Sans
-          curl -sL -o Noto_Sans_SC.zip https://fonts.google.com/download?family=Noto%20Sans%20SC
-          unzip Noto_Sans_SC.zip -d ~/.local/share/fonts/Noto_Sans_SC
-          curl -sL -o Noto_Sans_Mono.zip https://fonts.google.com/download?family=Noto%20Sans%20Mono
-          unzip Noto_Sans_Mono.zip -d ~/.local/share/fonts/Noto_Sans_Mono
-          rm -fv ~/.local/share/fonts/Noto_Sans_Mono/NotoSansMono-VariableFont_wdth,wght.ttf
-          curl -sL -o Noto_Sans_KR.zip https://fonts.google.com/download?family=Noto%20Sans%20KR
-          unzip Noto_Sans_KR.zip -d ~/.local/share/fonts/Noto_Sans_KR
-          curl -sL -o Noto_Sans_Thai.zip https://fonts.google.com/download?family=Noto%20Sans%20Thai
-          unzip Noto_Sans_Thai.zip -d ~/.local/share/fonts/Noto_Sans_Thai
-          rm -fv ~/.local/share/fonts/Noto_Sans_Thai/NotoSansThai-VariableFont_wdth,wght.ttf
-          curl -sL -o Noto_Sans_Arabic.zip https://fonts.google.com/download?family=Noto%20Sans%20Arabic
-          unzip Noto_Sans_Arabic.zip -d ~/.local/share/fonts/Noto_Sans_Arabic
-          curl -sL -o Noto_Sans_Hebrew.zip https://fonts.google.com/download?family=Noto%20Sans%20Hebrew
-          unzip Noto_Sans_Hebrew.zip -d ~/.local/share/fonts/Noto_Sans_Hebrew
-          curl -sL -o Noto_Sans_Devanagari.zip https://fonts.google.com/download?family=Noto%20Sans%20Devanagari
-          unzip Noto_Sans_Devanagari.zip -d ~/.local/share/fonts/Noto_Sans_Devanagari
-          rm -fv ~/.local/share/fonts/Noto_Sans_Devanagari/NotoSansDevanagari-VariableFont_wdth,wght.ttf
-          curl -sL -o Noto_Emoji.zip https://fonts.google.com/download?family=Noto%20Emoji
-          unzip Noto_Emoji.zip -d ~/.local/share/fonts/Noto_Emoji
-          curl -sL -o times_sans_serif.zip https://dl.dafont.com/dl/?f=times_sans_serif
-          unzip times_sans_serif.zip -d ~/.local/share/fonts/times_sans_serif
-          fc-cache -rv
-
-      - name: Install Calibre
-        run: |
-          sudo apt install -y libegl1 libopengl0 libxcb-cursor0
-          sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+      - name: Setup Github Caches
+        uses: DeterminateSystems/magic-nix-cache-action@v4
 
       - name: Build
-        env:
-          NODE_OPTIONS: --max_old_space_size=4096
         run: |
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
-          pnpm run build
+          NIXPKGS_ALLOW_UNFREE=1 nix build .# --impure
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: |
+            result/share/transky-book/book/epub/药娘的天空.epub
+            result/share/transky-book/book/typst-pdf/药娘的天空.pdf
+            result/share/transky-book/book/mobi/药娘的天空.mobi
 
       - name: Release eBook
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: pnpm exec semantic-release
+        run: exit0 || pnpm exec semantic-release
