@@ -1,14 +1,7 @@
 #set text(
   lang: "zh",
   font: (
-    "Noto Sans",
-    "Noto Sans SC",
-    "Noto Sans KR",
-    "Noto Sans Thai",
-    "Noto Sans Arabic",
-    "Noto Sans Hebrew",
-    "Noto Sans Devanagari",
-    "Noto Emoji",
+    "Source Han Serif SC",
   ),
 )
 

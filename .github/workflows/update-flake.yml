@@ -1,0 +1,47 @@
+name: "Update flake"
+on:
+  workflow_dispatch:
+  schedule:
+    # rebuild everyday at 2:51
+    # TIP: Choose a random time here so not all repositories are build at once:
+    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
+    - cron:  '31 2 * * 5'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-flake:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install nix
+        uses: cachix/install-nix-action@v26
+        with:
+          nix_path: nixpkgs=channel:nixpkgs-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git show -s
+
+      - name: Update flake
+        run: |
+          nix flake update --accept-flake-config
+          nix flake info --accept-flake-config
+
+      - name: Update flake
+        run: |
+          git add .
+          git status
+          git commit -m "flake update: $(date +'%Y-%m-%dT%H:%M:%S')" || exit 0
+          git push
