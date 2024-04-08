@@ -10,6 +10,10 @@
 
 <p align="center"><a href="https://transky.mtf.wiki/">开始阅读</a></p>
 
+## 🔧 欢迎找茬
+
+发现内容中的任何错误或有争议/不顺眼的部分均可在本仓库[提出 Issue](https://github.com/transky-book/transky/issues) 或[创建 Pull request](https://github.com/transky-book/transky/pulls)。
+
 ## ✅ 内容完整
 
 基于作者一手原稿，内容完整无缺。
