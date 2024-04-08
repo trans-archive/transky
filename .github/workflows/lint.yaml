@@ -1,0 +1,27 @@
+name: Lint
+
+on:
+  pull_request:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: AutoCorrect
+        uses: huacnlee/autocorrect-action@main
+
+      - name: Report ReviewDog
+        if: failure()
+        uses: huacnlee/autocorrect-action@main
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          reviewdog: true
