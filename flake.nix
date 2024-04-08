@@ -53,7 +53,7 @@
               pname = "transky-book";
               version = "unstable";
 
-              src = ./.;
+              src = lib.cleanSource ./.;
 
               nativeBuildInputs = [
                 calibre

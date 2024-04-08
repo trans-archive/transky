@@ -33,13 +33,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install nix
-        uses: cachix/install-nix-action@v26
-        with:
-          nix_path: "${{ matrix.nixPath }}"
-          extra_nix_config: |
-            experimental-features = nix-command flakes
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
 
       - name: Setup cachix
         uses: cachix/cachix-action@v14
@@ -47,11 +43,12 @@ jobs:
           name: cryolitia
           extraPullNames: nix-community
 
-      - name: Setup Github Caches
-        uses: DeterminateSystems/magic-nix-cache-action@v4
+      - name: Print flake metadata
+        run: nix flake metadata --accept-flake-config
 
       - name: Build
         run: |
+          
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
           NIXPKGS_ALLOW_UNFREE=1 nix build .# --impure
 
@@ -66,4 +63,4 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: exit0 || pnpm exec semantic-release
+        run: exit 0
