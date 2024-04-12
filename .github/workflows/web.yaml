@@ -1,20 +1,12 @@
-name: Build website and publish
+name: Build website
 
 on:
   workflow_dispatch:
+  workflow_call:
   pull_request:
-  push:
-    branches:
-      - "main"
-    paths:
-      - ".github/workflows/web.yaml"
-      - ".vitepress/**"
-      - "src/**"
-      - "package.json"
-      - "pnpm-lock.yaml"
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: web-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -45,12 +37,7 @@ jobs:
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
           pnpm run build
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      - uses: actions/upload-artifact@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}
-          projectName: transky-book
-          directory: .vitepress/dist/
-          wranglerVersion: 3
+          name: website
+          path: .vitepress/dist/

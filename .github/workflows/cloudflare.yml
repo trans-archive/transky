@@ -1,0 +1,42 @@
+name: Publish website to cloudflare
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/web.yaml"
+      - ".github/workflows/cloudflare.yml"
+      - ".vitepress/**"
+      - "src/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    uses: ./.github/workflows/web.yaml
+    
+  publish:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    environment: cloudflare-pages
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: website
+          path: website
+        
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}
+          projectName: transky-book
+          directory: website
+          wranglerVersion: 3
