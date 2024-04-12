@@ -1,6 +1,11 @@
 name: "Update flake"
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/update-flake.yml"
   schedule:
     # rebuild everyday at 2:51
     # TIP: Choose a random time here so not all repositories are build at once:
@@ -13,6 +18,7 @@ permissions:
 jobs:
   sync-flake:
     runs-on: ubuntu-latest
+    environment: flake
 
     steps:
       - name: Install nix
@@ -27,6 +33,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           show-progress: false
+          token:  ${{ secrets.PAT }}
 
       - name: Setup Git
         run: |
