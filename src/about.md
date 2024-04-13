@@ -2,7 +2,6 @@
 sidebar: false
 prev: false
 next: false
-comment: false
 ---
 
 # 关于
