@@ -1,11 +1,9 @@
 {
   "dependencies": {
-    "vitepress-plugin-comment-with-giscus": "^1.1.11",
     "vitepress-plugin-image-viewer": "^1.1.2"
   },
   "devDependencies": {
     "conventional-changelog-conventionalcommits": "^7.0.2",
-    "sass": "^1.70.0",
     "semantic-release": "^23.0.5",
     "viewerjs": "^1.11.6",
     "vitepress": "^1.0.0-rc.36",
