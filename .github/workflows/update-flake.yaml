@@ -1,11 +1,12 @@
 name: "Update flake"
+
 on:
   workflow_dispatch:
   push:
     branches:
       - "main"
     paths:
-      - ".github/workflows/update-flake.yml"
+      - ".github/workflows/update-flake.yaml"
   schedule:
     # rebuild everyday at 2:51
     # TIP: Choose a random time here so not all repositories are build at once:
@@ -19,7 +20,6 @@ jobs:
   sync-flake:
     runs-on: ubuntu-latest
     environment: flake
-
     steps:
       - name: Install nix
         uses: cachix/install-nix-action@v26
@@ -37,8 +37,8 @@ jobs:
 
       - name: Setup Git
         run: |
-          git config --global user.name "$GITHUB_ACTOR"
-          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git show -s
 
       - name: Update flake
