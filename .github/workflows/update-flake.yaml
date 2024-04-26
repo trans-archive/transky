@@ -50,5 +50,5 @@ jobs:
         run: |
           git add .
           git status
-          git commit -m "flake update: $(date +'%Y-%m-%dT%H:%M:%S')" || exit 0
+          git commit -m "chore: flake update $(date +'%Y-%m-%dT%H:%M:%S')" || exit 0
           git push
