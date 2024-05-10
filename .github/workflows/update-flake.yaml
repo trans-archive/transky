@@ -21,13 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: flake
     steps:
-      - name: Install nix
-        uses: cachix/install-nix-action@v26
-        with:
-          nix_path: nixpkgs=channel:nixpkgs-unstable
-          extra_nix_config: |
-            experimental-features = nix-command flakes
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - uses: DeterminateSystems/nix-installer-action@main
 
       - name: Checkout
         uses: actions/checkout@v4
