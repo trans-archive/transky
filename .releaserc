@@ -12,18 +12,18 @@
       {
         "preset": "conventionalcommits",
         "releaseRules": [
-          { "breaking": true,   "release": "major" },
-          { "revert": true,     "release": "patch" },
-          { "type": "feat",     "release": "minor" },
-          { "type": "fix",      "release": "patch" },
-          { "type": "refactor", "release": "patch" },
-          { "type": "style",    "release": "patch" },
-          { "type": "typo",     "release": "patch" },
-          { "type": "grammar",  "release": "patch" },
-          { "type": "ambig",    "release": "patch" },
-          { "type": "punctua",  "release": "patch" },
-          { "type": "chore",    "release": "patch" },
-          { "type": "ci",       "release": "patch" }
+          { "breaking": true,  "release": "major" },
+          { "revert": true,    "release": "patch" },
+          { "type": "feat",    "release": "minor" },
+          { "type": "fix",     "release": "patch" },
+          { "type": "rfct",    "release": "patch" },
+          { "type": "style",   "release": "patch" },
+          { "type": "typo",    "release": "patch" },
+          { "type": "grammar", "release": "patch" },
+          { "type": "ambig",   "release": "patch" },
+          { "type": "punctua", "release": "patch" },
+          { "type": "chore",   "release": "patch" },
+          { "type": "ci",      "release": "patch" }
         ]
       }
     ],
@@ -33,16 +33,16 @@
         "preset": "conventionalcommits",
         "presetConfig": {
           "types": [
-            { "type": "feat",     "section": "Features",          "hidden": false },
-            { "type": "fix",      "section": "Bug Fixes",         "hidden": false },
-            { "type": "refactor", "section": "Refactors",         "hidden": false },
-            { "type": "style",    "section": "Style Improves",    "hidden": false },
-            { "type": "typo",     "section": "Typo Fixes",        "hidden": false },
-            { "type": "grammar",  "section": "Grammar Fixes",vv   "hidden": false },
-            { "type": "ambig",    "section": "Ambiguity Fixes",   "hidden": false },
-            { "type": "punctua",  "section": "Punctuation Fixes", "hidden": false },
-            { "type": "chore",    "section": "Chores",            "hidden": false },
-            { "type": "ci",       "section": "CI",                "hidden": true }
+            { "type": "feat",    "section": "Features",          "hidden": false },
+            { "type": "fix",     "section": "Bug Fixes",         "hidden": false },
+            { "type": "rfct",    "section": "Refactors",         "hidden": false },
+            { "type": "style",   "section": "Style Improves",    "hidden": false },
+            { "type": "typo",    "section": "Typo Fixes",        "hidden": false },
+            { "type": "grammar", "section": "Grammar Fixes",vv   "hidden": false },
+            { "type": "ambig",   "section": "Ambiguity Fixes",   "hidden": false },
+            { "type": "punctua", "section": "Punctuation Fixes", "hidden": false },
+            { "type": "chore",   "section": "Chores",            "hidden": false },
+            { "type": "ci",      "section": "CI",                "hidden": true }
           ]
         }
       }
