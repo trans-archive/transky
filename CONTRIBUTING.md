@@ -1,116 +1,138 @@
 # 贡献指南
 
-## <a name="politeness"></a>用语规范
+## 用语规范
 
 本项目贡献者包括跨性别者等多元文化群体，请在贡献时尊重 ta 人，使用友善礼貌的词语。
 
-## <a name="commit"></a>提交规范
+## 提交规范
 
-### <a name="amount"></a>单个提交更改量
+> 提交说明中所有字段均应在 CJK 字符与非 CJK 字符间插入空格。
 
-每一个提交只做一件事，即只适用一个 [Type 字段](#type)和一个 [Scope 字段](#scope)。过多更改堆积在一个提交时应当按类型拆分成多个提交。
-
-### <a name="message"></a>提交说明
-
-> 提交说明的所有格式部分均使用英文半角标点，只有字段内容视使用语言使用全角标点，所有 CJK 字符与英文之间应插入空格。
+提交说明格式：
 
 ```
-<Type>(<Scope>): <Subject>
+<type>[(<scope>)]: <subject>
 <空行>
-<Body>
+<body>
 <空行>
-<Footer>
+<footer>
 ```
 
-#### <a name="header"></a>Header 部分
+- `<anything here>`：应被实际内容代替的字段
+- `[optional thing here]`：可选的字段
 
-Header 部分是提交说明的第一行，包含 `<Type>`、`<Scope>` 和 `<Subject>` 三个字段。
+### type
 
-##### <a name="type"></a>Type 字段
+提交类型。
 
-Type 字段描述提交的类型。此字段的可用值：
+必须。
 
-- feat
-  - 更改范围：代码
-  - 行为：添加新功能
+可用值：
 
-- fix
-  - 更改范围：代码
-  - 行为：修复实际行为与预期行为不一致的问题
+| 类型     | 更改范围      | 更改行为                                     |
+| -------- | ------------- | -------------------------------------------- |
+| feat     | 代码          | 添加新功能                                   |
+| fix      | 代码          | 修复由代码错误引发的未预期的问题             |
+| refactor | 代码          | 在不改变代码行为的情况下更改、重写、重构代码 |
+| style    | 代码或内容    | 更改文本格式风格，如空格、缩进、大小写       |
+| typo     | 内容          | 修正不具有争议且由输入错误产生的错别字       |
+| grammar  | 内容          | 修正不符合汉语规范的语法错误                 |
+| ambig    | 内容          | 修正易造成误解或具有歧义的内容               |
+| punctua  | 内容          | 修正标点错误                                 |
+| chore    | 非内容        | 杂务                                         |
+| dep      | 版本锁定文件  | 升级/降级依赖包                              |
+| ci       | CI 工作流代码 | 更改 CI 工作流行为                           |
 
-- rfct（已弃用：refactor）
-  - 更改范围：代码
-  - 行为：重构、替换代码，不改变代码行为
+### scope
 
-- style
-  - 更改范围：代码或内容
-  - 行为：更改如缩进、空格、大小写等的文本风格
+更改范围。
 
-- typo
-  - 更改范围：内容
-  - 行为：修正没有争议的错别字
+内容更改必须。
 
-- grammar
-  - 更改范围：内容
-  - 行为：修正造成阅读不畅的语法错误
+格式（内容更改）：`<cha>/<sec>[:<line>[,<end_line>]]`
 
-- ambig
-  - 更改范围：内容
-  - 行为：修正造成误解的具有歧义的内容
+- cha：章号
+- sec：节号
+- line：行号
+- end_line：结束行号
 
-- punctua
-  - 更改范围：内容
-  - 行为：修正标点错误
+特例：大量综合性更改使用 `*` 填充。
 
-- chore
-  - 更改范围：非内容
-  - 行为：杂务
+可并列，使用 `; ` 分隔。
 
-- dep
-  - 更改范围：版本锁定文件
-  - 行为：升级/降级依赖包
+为符合此规范，单个提交最多执行一种（可被单个 type 和单个 body 描述的）内容更改。
 
-- ci
-  - 更改范围：持续集成代码
-  - 行为：更改持续集成代码行为
+示例（内容更改）：
 
-##### <a name="scope"></a>Scope 字段
+- `01/023`
+- `01/023:45`
+- `01/023:45,67`
+- `01/023; 04/567:89; 10/001:1,10`
 
-Scope 字段描述提交的更改范围。此字段为可选字段。
+### subject
 
-此字段通常使用文件名、包名、类名或方法/函数名。涉及内容的更改通常使用 `<章节路径>:<更改行号>` 的格式，如 `11/45:14`；多行更改使用 `<章节路径>:<起始行号>,<结束行号>` 的格式，如 `19/19:8,10` 。
+提交描述。
 
-如果单个提交存在许多重复更改但无法用单一 Scope 字段描述，可以使用一个分号加一个空格 `; ` 分隔多个 Scope 字段，如 `11/45:14; 19/19:8,10`。此时多个并列 Scope 字段为一个整体的 Scope 字段。
+必须。
 
-全局/大量更改请使用星号 `*` 填充此字段。
+以动词开头，使用第一人称、一般现在时编写。首字母小写，句尾不添加句号。
 
-##### <a name="subject"></a>Subject 字段
+#### 特殊标签
 
-Subject 字段用于简短地描述提交。此字段应以动词开头，并使用第一人称、一般现在时。此字段首字母小写，句尾不添加句号，中文也是如此。
-
-###### 特殊标签
-
-以下标签具有特殊效果，应放置在 Subject 字段末尾：
+以下标签具有特殊效果，应添加在 subject 后：
 
 - `[skip ci]`：跳过 CI 构建
 
 - `[skip release]`：跳过发布 Release
 
-#### <a name="body"></a>Body 部分
+### body
 
-Body 部分是提交说明的主体。此部分用于详细描述此提交。此部分使用第一人称、一般现在时。此字段首字母大写，句尾添加句号。
+详细提交描述。
 
-#### <a name="footer"></a>Footer 部分
+内容更改必须。
 
-Footer 部分用于承载额外内容，如关闭某个（或多个）issue，签名行。
+使用第一人称、一般现在时编写。首字母大写，句尾添加句号。
+
+格式（内容更改）：`<before> -> <after>`
+
+- before：更改前内容段
+- after：更改后内容段
+
+### footer
+
+额外说明。
+
+可选
+
+用例：关闭 issue、签名。
+
+示例：
+
+- `Resolves #1, resolves #2, resolves #3`
+- `Signed-off-by: Someone <someone@example.com>`
+
+### revert
+
+revert 提交的提交说明第一行为 `Revert "<reverted_line1>"`，`<reverted_line1>` 是被 revert 提交的提交说明第一行；body 为 `This reverts commit <hash>.`，`<hash>` 是被 revert 提交的 SHA，body 可附加 revert 理由。
+
+### 提交说明示例
+
+内容更改：
 
 ```
-Resolves #1, resolves #2, resolves #3
-Signed-off-by: Someone <someone@example.com>
+typo(01/017:77): 修正错别字
+
+初次之外 -> 除此之外
+
+Signed-off-by: command_block <mtf@ik.me>
 ```
 
-或其他不应放在 Header 和 Body 部分的内容。
+非内容更改：
 
-#### <a name="revert"></a>Revert
+```
+feat: 支持 MOBI 版
 
-Revert 提交的 Header 部分应以 `revert: ` 开头，后接被 revert 的提交的 Header，其 Body 部分应有 `This reverts commit <hash>.`，`<hash>` 是被 revert 的提交的 SHA，可以附加 revert 的理由。
+使用 Calibre 的 ebook-convert 命令将 EPUB 转换为 MOBI 以实现支持。
+
+Signed-off-by: command_block <mtf@ik.me>
+```
