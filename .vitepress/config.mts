@@ -50,7 +50,7 @@ export default defineConfig({
       message:
         '基于 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans">CC BY-NC-SA 4.0</a> 许可发布',
       copyright:
-        '版权所有 © 2016-2024 <a href="https://www.weibo.com/p/1005055513855401">乱世银娘</a>、<a href="https://github.com/transky-book">Transky</a> 全体贡献者',
+        '版权所有 © 2016-2024 <a href="https://www.weibo.com/p/1005055513855401">乱世银娘</a>、<a href="https://github.com/transky-book/transky/graphs/contributors">Transky 全体贡献者</a>',
     },
     editLink: {
       pattern:
