@@ -34,11 +34,14 @@ jobs:
 
       - name: Update flake
         run: |
+          set +e
+          
           nix flake update --accept-flake-config
           nix flake info --accept-flake-config
 
-      - name: Update flake
-        run: |
+          # suppress inactive repo update weekly
+          git log --pretty=format:"%s" -1 HEAD | grep "dep: flake update" || exit 0
+          
           git add .
           git status
           git commit -m "dep: flake update $(date +'%Y-%m-%dT%H:%M:%S')" || exit 0
