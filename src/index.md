@@ -5,7 +5,7 @@ layout: home
 title: 药娘的天空
 
 hero:
-  name: 药娘的天空
+  name: 药娘的天空<br /><small>别名：想要变成鹰的鱼</small>
   text: 一个 2000 年代的跨性别者的故事。
   tagline: <i>千篇一律的景，时长时短的影。无人相伴的路，惝恍迷离的舞。</i>
   actions:
