@@ -2,7 +2,7 @@
 <img src="src/public/progynova.png" alt="Progynova" width="128" height="128"/>
 </p>
 
-<h1 align="center">药娘的天空</h1>
+<h1 align="center">药娘的天空<br /><small>别名：想要变成鹰的鱼</small></h1>
 
 <p align="center">一个 2000 年代的跨性别者的故事。</p>
 
