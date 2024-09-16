@@ -12,6 +12,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,19 +25,13 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
 
-      - name: Setup cachix
-        uses: cachix/cachix-action@v14
-        with:
-          name: cryolitia
-          extraPullNames: nix-community
-
       - name: Print flake metadata
         run: nix flake metadata --accept-flake-config
 
       - name: Build
         run: |
           sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
-          NIXPKGS_ALLOW_UNFREE=1 nix build .# --impure
+          NIXPKGS_ALLOW_UNFREE=1 nix build .# --impure --accept-flake-config
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

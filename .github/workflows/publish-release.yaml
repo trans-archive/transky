@@ -22,6 +22,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   build:
     uses: ./.github/workflows/build-ebook.yaml
