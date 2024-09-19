@@ -20,11 +20,18 @@ jobs:
     steps:
       - uses: DeterminateSystems/nix-installer-action@main
 
+      - name: Generate a token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.TRIGGER_APP_ID }}
+          private-key: ${{ secrets.TRIGGER_APP_SECRET }}
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           show-progress: false
-          token:  ${{ secrets.PAT }}
+          token:  ${{ steps.generate-token.outputs.token }}
 
       - name: Setup Git
         run: |
@@ -40,7 +47,7 @@ jobs:
           nix flake info --accept-flake-config
 
           # suppress inactive repo update weekly
-          git log --pretty=format:"%s" -1 HEAD | grep "dep: flake update" || exit 0
+          git log --pretty=format:"%s" -1 HEAD | grep "dep: flake update" && exit 0
           
           git add .
           git status
