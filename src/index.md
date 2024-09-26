@@ -36,25 +36,3 @@ features:
     title: 自由发布
     details: 基于 CC BY-NC-SA 4.0 许可发布，自由开放。
 ---
-
-<style>
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #5BCEFA, #F5A9B8, #FFFFFF, #F5A9B8, #5BCEFA);
-
-  --vp-home-hero-image-background-image: linear-gradient(-45deg, #5BCEFA, #F5A9B8, #FFFFFF, #F5A9B8, #5BCEFA);
-  --vp-home-hero-image-filter: blur(44px);
-}
-
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
-  }
-}
-
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
-  }
-}
-</style>
