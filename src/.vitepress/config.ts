@@ -42,7 +42,7 @@ const sidebarOptions = [
 const themeConfig: ThemeContext = {
   siteTitle: "药娘的天空",
   siteDescription: "一个 2000 年代的跨性别者的故事。",
-  siteLogo: "/src/public/progynova.png",
+  siteLogo: "/progynova.png",
   /** Repo */
   githubRepoLink: "https://github.com/transky-book/transky",
   /** vitepress 根目录 */
