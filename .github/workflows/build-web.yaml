@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: website
-          path: .vitepress/dist/
+          path: src/.vitepress/dist/

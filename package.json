@@ -1,18 +1,45 @@
 {
-  "dependencies": {
-    "vitepress-plugin-image-viewer": "^1.1.4"
+  "name": "transky-book",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "《药娘的天空》",
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
+  "license": "CC-BY-NC-SA-4.0",
+  "scripts": {
+    "dev": "vitepress dev src",
+    "build": "NODE_OPTIONS=\"--max_old_space_size=16384\" vitepress build src",
+    "preview": "vitepress preview src",
+    "update-package": "pnpm dlx vp-update src"
   },
   "devDependencies": {
-    "@saithodev/semantic-release-backmerge": "^4.0.1",
-    "conventional-changelog-conventionalcommits": "^7.0.2",
-    "semantic-release": "^23.0.8",
-    "viewerjs": "^1.11.6",
-    "vitepress": "^1.1.3",
-    "vitepress-sidebar": "^1.22.0"
+    "@antfu/eslint-config": "^2.27.3",
+    "@cloudflare/workers-types": "^4.20240925.0",
+    "@iconify-json/carbon": "^1.2.1",
+    "@iconify-json/icon-park-outline": "^1.2.0",
+    "@iconify-json/octicon": "^1.2.0",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.5.0",
+    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.5.0",
+    "@project-trans/suggestion-box": "^0.0.9",
+    "@project-trans/vitepress-theme-project-trans": "^0.4.0",
+    "@unocss/eslint-plugin": "^0.59.4",
+    "eslint": "^8.57.1",
+    "eslint-plugin-format": "^0.1.2",
+    "unocss": "^0.62.4",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^5.4.8",
+    "vitepress": "^1.3.4",
+    "vitepress-plugin-image-viewer": "^1.1.5",
+    "vue": "^3.5.9"
   },
-  "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
+  "pnpm": {
+    "overrides": {
+      "hasown": "npm:@nolyfill/hasown@^1",
+      "is-core-module": "npm:@nolyfill/is-core-module@^1"
+    }
+  },
+  "dependencies": {
+    "i": "^0.3.7",
+    "npm": "^10.8.3",
+    "viewerjs": "^1.11.6"
   }
 }

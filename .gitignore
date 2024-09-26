@@ -1,5 +1,6 @@
 book
-.vitepress/cache
-.vitepress/dist
+src/.vitepress/cache
+src/.vitepress/dist
+src/.vitepress/.temp
 node_modules
 result
