@@ -53,6 +53,8 @@ const themeConfig: ThemeContext = {
   sidebarOptions,
   enableChangeLog: true,
   enableSuggestionBox: false,
+  /** 文档所在目录（用于GitHub编辑链接） */
+  sitePattern: `src`,
 };
 
 // https://vitepress.dev/reference/site-config
