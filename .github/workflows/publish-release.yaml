@@ -36,11 +36,20 @@ jobs:
       needs: build
       if: ${{ !(github.event_name == 'push' && contains(github.event.head_commit.message, '[skip release]')) }}
       runs-on: ubuntu-latest
+      environment: flake
       steps:
+        - name: Generate a token
+          id: generate-token
+          uses: actions/create-github-app-token@v1
+          with:
+            app-id: ${{ vars.TRIGGER_APP_ID }}
+            private-key: ${{ secrets.TRIGGER_APP_SECRET }}
+
         - name: Checkout
           uses: actions/checkout@v4
           with:
             fetch-depth: 0
+            token:  ${{ steps.generate-token.outputs.token }}
 
         - name: Setup pnpm
           uses: pnpm/action-setup@v3
