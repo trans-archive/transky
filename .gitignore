@@ -4,3 +4,4 @@ src/.vitepress/dist
 src/.vitepress/.temp
 node_modules
 result
+src/.vitepress/components.d.ts
