@@ -1,0 +1,18 @@
+[book]
+title = "药娘的天空"
+authors = ["乱世银娘"]
+description = "一个 2000 年代的跨性别者的故事。"
+language = "zh-CN"
+
+[build]
+create-missing = false
+
+[output.epub]
+additional-css = ["theme/indent.css"]
+cover-image = "illustrations/epub-cover.jpg"
+no-section-label = true
+
+[output.typst-pdf]
+pdf = true
+custom-template = "theme/template.typ"
+section-number = false

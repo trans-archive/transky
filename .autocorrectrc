@@ -1,0 +1,3 @@
+# yaml-language-server: $schema=https://huacnlee.github.io/autocorrect/schema.json
+textRules:
+  哆啦A梦: 0

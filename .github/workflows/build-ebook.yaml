@@ -1,0 +1,43 @@
+name: Build ebook
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+
+concurrency:
+  group: ebook-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
+
+      - name: Print flake metadata
+        run: nix flake metadata --accept-flake-config
+
+      - name: Build
+        run: |
+          sed -e "s/BUILD_TIME/$(TZ=Asia/Shanghai date -Isecond)/" -e "s/COMMIT_SHA/${{ github.sha }}/" -i src/about.md
+          NIXPKGS_ALLOW_UNFREE=1 nix build .# --impure --accept-flake-config
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ebook
+          path: |
+            result/share/transky-book/book/epub/药娘的天空.epub
+            result/share/transky-book/book/mobi/药娘的天空.mobi
+            result/share/transky-book/book/typst-pdf/药娘的天空.pdf

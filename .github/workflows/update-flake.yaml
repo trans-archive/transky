@@ -1,0 +1,55 @@
+name: "Update flake"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/update-flake.yaml"
+  schedule:
+    - cron: '31 2 * * 5'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-flake:
+    runs-on: ubuntu-latest
+    environment: flake
+    steps:
+      - uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Generate a token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.TRIGGER_APP_ID }}
+          private-key: ${{ secrets.TRIGGER_APP_SECRET }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          token:  ${{ steps.generate-token.outputs.token }}
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git show -s
+
+      - name: Update flake
+        run: |
+          set +e
+          
+          nix flake update --accept-flake-config
+          nix flake info --accept-flake-config
+
+          # suppress inactive repo update weekly
+          git log --pretty=format:"%s" -1 HEAD | grep "dep: flake update" && exit 0
+          
+          git add .
+          git status
+          git commit -m "dep: flake update $(date +'%Y-%m-%dT%H:%M:%S')" || exit 0
+          git push
