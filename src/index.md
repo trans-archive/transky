@@ -14,7 +14,7 @@ hero:
       link: /foreword
     - theme: brand
       text: 下载电子书
-      link: https://github.com/transky-book/transky/releases/latest
+      link: https://github.com/transky-book/transky/releases
     - theme: alt
       text: 在 GitHub 上查看
       link: https://github.com/transky-book/transky
