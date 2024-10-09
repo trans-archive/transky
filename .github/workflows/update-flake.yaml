@@ -16,7 +16,6 @@ permissions:
 jobs:
   sync-flake:
     runs-on: ubuntu-latest
-    environment: flake
     steps:
       - uses: DeterminateSystems/nix-installer-action@main
 
