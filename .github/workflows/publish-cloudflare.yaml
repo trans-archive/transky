@@ -38,6 +38,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_PAGES_ACCOUNT }}
-          projectName: transky-book
+          projectName: transky
           directory: website
           wranglerVersion: 3
