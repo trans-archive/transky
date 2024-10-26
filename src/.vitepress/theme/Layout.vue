@@ -13,6 +13,7 @@ import {
 } from "@project-trans/vitepress-theme-project-trans/components";
 
 import CopyrightInfo from "./CopyrightInfo.vue";
+import PageInfo from "./PageInfo.vue";
 
 const { Layout } = DefaultTheme;
 </script>
@@ -22,6 +23,7 @@ const { Layout } = DefaultTheme;
     <Layout>
       <template #doc-before>
         <NolebaseHighlightTargetedHeading />
+        <PageInfo />
       </template>
       <template #doc-after>
         <AppFooter />
@@ -29,9 +31,11 @@ const { Layout } = DefaultTheme;
         <CopyrightInfo />
         <p style="text-align: center; margin-top: 40px">
           本站不提供评论服务，如有评论需求，请移步至
-          <a style="color: var(--vp-c-brand-1)"
-            href="https://github.com/transky-book/transky/discussions/categories/%E8%AF%84%E8%AE%BA%E5%8C%BA">GitHub
-            Discussions</a>。
+          <a
+            style="color: var(--vp-c-brand-1)"
+            href="https://github.com/transky-book/transky/discussions/categories/%E8%AF%84%E8%AE%BA%E5%8C%BA"
+            >GitHub Discussions</a
+          >。
         </p>
       </template>
       <template #nav-bar-content-after>
@@ -48,5 +52,10 @@ const { Layout } = DefaultTheme;
 :root {
   --vp-font-family-base: sans-serif;
   --vp-font-family-mono: monospace;
+}
+
+/* hide the first h1 under vp-doc */
+.vp-doc div h1:first-of-type {
+  display: none;
 }
 </style>
