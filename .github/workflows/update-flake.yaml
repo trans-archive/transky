@@ -1,4 +1,4 @@
-name: "Update flake"
+name: "Update Deps"
 
 on:
   workflow_dispatch:
@@ -40,15 +40,34 @@ jobs:
 
       - name: Update flake
         run: |
-          set +e
           
           nix flake update --accept-flake-config
           nix flake info --accept-flake-config
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+          run_install: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          node-version: current
+
+      - name: Update deps
+        run: |
+          pnpm update --recursive
+
+      - name: Commit changes
+        run: |
+          set +e
+
           # suppress inactive repo update weekly
-          git log --pretty=format:"%s" -1 HEAD | grep "dep: flake update" && exit 0
+          git log --pretty=format:"%s" -1 HEAD | grep "dep: update at" && exit 0
           
           git add .
           git status
-          git commit -m "dep: flake update $(date +'%Y-%m-%dT%H:%M:%S')" || exit 0
+          git commit -m "dep: update at $(date +'%Y-%m-%dT%H:%M:%S')" || exit 0
           git push
