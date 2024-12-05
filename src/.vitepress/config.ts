@@ -55,6 +55,7 @@ const themeConfig: ThemeContext = {
   enableSuggestionBox: false,
   /** 文档所在目录（用于GitHub编辑链接） */
   sitePattern: `src`,
+  hostName: 'https://transky.mtf.wiki',
 };
 
 // https://vitepress.dev/reference/site-config
