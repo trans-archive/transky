@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.11.2",
-    "@cloudflare/workers-types": "^4.20241202.0",
+    "@cloudflare/workers-types": "^4.20241205.0",
     "@iconify-json/carbon": "^1.2.4",
     "@iconify-json/icon-park-outline": "^1.2.1",
     "@iconify-json/octicon": "^1.2.1",
