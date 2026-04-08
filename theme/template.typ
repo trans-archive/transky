@@ -26,19 +26,19 @@
 )
 
 #set page(
-  header: locate(loc => {
-    if counter(page).at(loc).first() > 1 [
+  header: context {
+    if counter(page).get().first() > 1 [
       MDBOOK_TYPST_PDF_TITLE
     ]
-  }),
-  footer: locate(loc => {
-    if counter(page).at(loc).first() > 1 [
+  },
+  footer:context {
+    if counter(page).get().first() > 1 [
       #counter(page).display(
         "1/1",
         both: true,
       )
     ]
-  }),
+  },
 )
 
 #page(background: image("illustrations/cover.jpg"), [])
