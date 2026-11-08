@@ -7,6 +7,8 @@ type NavConfig = DefaultTheme.Config["nav"];
 
 const nav = [
   { text: "正文", link: "/foreword" },
+  { text: "阅读图鉴", link: "/药娘的天空-全书阅读图鉴.html" },
+  { text: "故事放映室", link: "/药娘的天空-剧情动画与全结局.html" },
   { text: "关于", link: "/about" },
 ];
 
