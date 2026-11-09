@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><meta name="description" content="药娘的天空剧情放映室：可播放、拖动故事时间轴的地点与人物动画，包含正文、正式外传、转生、幸福IF及所有角色结局索引。"><title>药娘的天空 · 故事放映室</title><style>:root{--bg:#0d1722;--surface:#152332;--surface2:#192a3b;--line:#2b3e50;--text:#eaf0f4;--muted:#94a8b9;--gold:#e3bd78;--gold2:#c99747;--cyan:#7ab6c8;--pink:#dfa1ae;--green:#76b5a0;--red:#df7e81;--radius:16px;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 40% 0,#1b2a38 0,transparent 70%),var(--bg);color:var(--text);font:15px/1.75 -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif}button,input,select{font:inherit;color:inherit}button{cursor:pointer;border:0}button:disabled{opacity:.36;cursor:default}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}p,h1,h2,h3,h4{margin:0}h1,h2,h3{line-height:1.5}button{min-height:36px}select{background:var(--surface2);border:1px solid var(--line);border-radius:6px;padding:5px 8px}input[type=search]{width:100%;background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:11px 13px;min-height:42px}code{font-size:12px;overflow-wrap:anywhere}.hidden{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:absolute;top:-60px;left:18px;padding:8px 12px;background:var(--surface);z-index:999}.skip-link:focus{top:12px}.app{max-width:1700px;margin:auto;padding:0 32px}.topbar{display:flex;gap:20px;align-items:center;justify-content:space-between;padding:23px 0 20px}.brand{display:flex;gap:14px;align-items:center}.brand-icon{display:flex;align-items:center;justify-content:center;border:1px solid #71899b;width:46px;height:46px;border-radius:50%;color:var(--gold);font:25px Georgia,'Songti SC','SimSun',serif;position:relative}.brand-icon:after{content:'';position:absolute;width:14px;height:1px;background:var(--gold);right:-6px;top:9px}.brand-en{font-size:9px;letter-spacing:.25em;color:var(--muted);margin-bottom:3px}.brand h1{font-size:21px;font-weight:500;letter-spacing:.06em}.brand h1 span{font-size:14px;color:var(--muted);letter-spacing:.04em}.top-actions{display:flex;align-items:center;gap:9px}.top-actions button,.finish-actions>button{padding:7px 14px;border:1px solid var(--line);background:var(--surface);border-radius:7px;font-size:12px}.top-actions .gold-outline{border-color:#957744;color:var(--gold)}.top-actions .quiet{background:none;border-color:transparent;color:var(--muted)}.program-strip{display:flex;gap:18px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0}.program-label{font-size:11px;color:var(--muted);white-space:nowrap}.track-tabs{display:flex;gap:6px;align-items:center;flex:1;overflow:auto;scrollbar-width:thin}.track-tab{white-space:nowrap;font-size:12px;border:1px solid transparent;border-radius:6px;padding:7px 13px;background:none;color:var(--muted)}.track-tab:hover{background:var(--surface)}.track-tab.active{background:#e3bd7817;border-color:#9c7e49;color:var(--gold)}.track-tab small{font-size:9px;margin-left:6px;opacity:.75}.fullscreen-btn{background:none;color:var(--muted);font-size:20px;white-space:nowrap;min-width:66px}.fullscreen-btn span{font-size:11px;margin-left:3px}.player-layout{display:grid;grid-template-columns:minmax(0,1fr) 322px;gap:20px;margin-top:23px;align-items:stretch}.screen-column{min-width:0;display:flex;flex-direction:column}.screen{position:relative;overflow:hidden;border-radius:var(--radius);background:#dbe6e8;box-shadow:0 12px 40px #0002;isolation:isolate}.screen svg{display:block;width:100%;aspect-ratio:1200/690;height:auto;color-scheme:light}.screen-top{position:absolute;z-index:3;top:17px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;pointer-events:none;color:#284455}.world-badge{display:inline-block;border:1px solid #36586b55;background:#ffffffb0;backdrop-filter:blur(10px);border-radius:30px;padding:3px 11px;font-size:11px;font-weight:600}.world-badge.branch{background:#f7ead0;border-color:#c4a367;color:#705322}.world-badge.dream{background:#eae1f1;color:#644d7c;border-color:#a891b9}.scene-region{font-size:12px;margin-left:10px;font-weight:600}.scene-counter{font:11px Georgia,serif;letter-spacing:.08em;color:#4a6576}.screen-bottom{position:absolute;bottom:12px;left:17px;right:17px;display:flex;gap:10px;align-items:center;justify-content:space-between;z-index:3;pointer-events:none}.screen-bottom>span{color:#56717e;font-size:10px;background:#f4f8faaa;padding:3px 8px;border-radius:4px;max-width:65%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.camera-controls{display:flex;gap:4px;align-items:center;pointer-events:auto}.camera-controls select{font-size:10px;max-width:125px;padding:4px 6px;background:#f6fafce6;color:#36515f;border-color:#b8cbd6;min-height:28px}.camera-controls button{background:#f6fafce6;border:1px solid #b8cbd6;color:#36515f;width:29px;min-height:28px;border-radius:5px;font-size:13px}.screen-legend{display:flex;align-items:center;flex-wrap:wrap;gap:8px 17px;padding:13px 4px 2px;font-size:10px;color:var(--muted)}.screen-legend span{white-space:nowrap}.legend-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:5px}.legend-line{display:inline-block;width:19px;height:2px;background:var(--pink);margin:0 6px 3px 0}.legend-line.bond{background:var(--green)}.legend-line.conflict{background:var(--red)}.legend-line.memory{background:var(--muted);height:0;border-top:2px dashed var(--muted)}.legend-help{margin-left:auto;color:#738c9f}.intro,.finished{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;text-align:left;background:linear-gradient(90deg,#102d40dd,#13344855);backdrop-filter:blur(3px);color:#f6fafb;padding:35px}.intro-card{max-width:580px;width:100%;padding-left:20px}.kicker{color:var(--gold);font-size:10px;letter-spacing:.12em}.intro h2{font-family:'Noto Serif CJK SC','Songti SC','SimSun',serif;font-size:38px;font-weight:400;line-height:1.55;margin:16px 0;letter-spacing:.08em}.intro p{font-size:13px;line-height:2;color:#c9d8e1}.start-btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;padding:11px 22px;border-radius:7px;background:var(--gold);color:#233442;font-size:14px;font-weight:600;min-height:46px}.intro .start-btn{margin-top:26px}.play-symbol{font-size:12px}.intro-tip{font-size:10px;color:#a7bdcd;margin-top:13px}.finished{background:#122c42d9;text-align:center;backdrop-filter:blur(8px)}.finished h2{font-size:27px;font-weight:400;margin:16px 0}.finished p{font-size:13px;color:#c5d5df}.finish-actions{display:flex;justify-content:center;gap:10px;margin-top:24px}.finish-actions .start-btn{color:#1e3342;border-color:var(--gold);background:var(--gold)}.event-panel{border:1px solid var(--line);border-radius:var(--radius);padding:21px 23px;background:linear-gradient(145deg,#1b2b3a,#152332);display:flex;flex-direction:column;min-width:0}.event-overline{display:flex;gap:8px;justify-content:space-between;font-size:10px;color:var(--gold);letter-spacing:.08em}.event-type{color:var(--muted);letter-spacing:0}.story-date{font:25px/1.45 Georgia,'Songti SC','SimSun',serif;margin:10px 0 2px;letter-spacing:.03em}.date-note{font-size:10px;color:var(--muted);line-height:1.65;min-height:15px}.event-panel h2{font-size:19px;font-weight:550;margin:18px 0 11px;letter-spacing:.02em}.narration{font-size:13px;line-height:2.1;color:#d1dee7;text-align:justify}.result-box{margin-top:18px;border-left:2px solid var(--gold2);padding:9px 12px;background:#e3bd7807}.result-box>span{font-size:9px;letter-spacing:.12em;color:var(--gold)}.result-box>p{font-size:12px;line-height:1.85;color:#dce4e9;margin-top:3px}.mini-heading{font-size:10px;letter-spacing:.08em;color:var(--muted);margin:16px 0 7px}.cast-list{display:flex;gap:5px;flex-wrap:wrap}.cast-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;min-height:27px;padding:3px 7px;background:#243746;border:1px solid #344a5c;border-radius:5px}.cast-chip:hover{border-color:var(--gold)}.cast-chip .dot{width:5px;height:5px;border-radius:50%;background:var(--who,var(--cyan))}.cast-chip.dead{opacity:.72;border-style:dashed}.cast-chip.memory{color:#b5a4ce}.props-list{display:flex;gap:5px;flex-wrap:wrap}.prop{font-size:10px;border-bottom:1px solid #7d714d;color:#ccb78c;line-height:1.75}.ending-flash{padding:11px 12px;border:1px solid #7e6641;background:#5e44231c;border-radius:7px;margin-top:14px}.ending-flash>strong{font-size:10px;color:var(--gold);font-weight:500;display:block;margin-bottom:4px}.ending-flash p{font-size:11px;color:#d6c5a8;line-height:1.9}.event-refs{margin-top:auto;padding-top:17px;display:flex;gap:5px;flex-wrap:wrap}.ref-btn{font-size:10px;min-height:24px;background:transparent;border:1px solid #3a5265;border-radius:4px;color:#9fb8cb;padding:2px 6px}.ref-btn:hover{border-color:var(--gold);color:var(--gold)}.transport{margin-top:20px;background:#122332;border:1px solid #304454;border-radius:12px;padding:16px 22px 14px;box-shadow:0 10px 25px #0001}.timeline-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.timeline-heading>div{display:flex;align-items:baseline;gap:14px}.timeline-kicker{font-size:10px;letter-spacing:.1em;color:var(--muted)}.timeline-heading strong{font-size:13px;font-weight:500;color:var(--gold)}.timeline-note{font-size:10px;color:#6f8da1;margin-left:auto}.text-button{background:none;color:var(--gold);font-size:11px;padding:0;min-height:24px}.timeline-wrap{height:25px;position:relative;margin-top:18px;touch-action:pan-y}.timeline-bands{position:absolute;top:8px;left:0;right:0;height:6px;display:flex;border-radius:10px;overflow:hidden;background:#354655}.timeline-band{height:100%;position:relative;opacity:.65;border-right:3px solid var(--surface)}.timeline-band:last-child{border:0}.timeline-fill{position:absolute;top:8px;left:0;height:6px;background:#e3bd78a6;pointer-events:none;border-radius:10px;width:0}.milestones{position:absolute;left:0;right:0;top:8px;height:6px;pointer-events:none}.milestone{position:absolute;width:2px;height:8px;top:-1px;background:#e7efef88}.milestone.ending{width:6px;height:6px;top:0;background:var(--gold);border-radius:50%;transform:translateX(-2px)}#timeline{position:absolute;inset:0;appearance:none;-webkit-appearance:none;cursor:pointer;margin:0;width:100%;height:22px;background:transparent;color:var(--gold)}#timeline::-webkit-slider-runnable-track{height:6px;background:transparent}#timeline::-moz-range-track{height:6px;background:transparent}#timeline::-moz-range-progress{background:transparent}#timeline::-webkit-slider-thumb{appearance:none;width:15px;height:15px;border:3px solid #203548;border-radius:50%;background:var(--gold);box-shadow:0 0 0 1px var(--gold);margin-top:-5px}#timeline::-moz-range-thumb{width:11px;height:11px;border:3px solid #203548;border-radius:50%;background:var(--gold);box-shadow:0 0 0 1px var(--gold)}.timeline-tooltip{position:absolute;bottom:30px;transform:translateX(-50%);max-width:260px;min-width:140px;padding:9px 12px;border-radius:8px;background:#ecf1f5;color:#203849;font-size:11px;box-shadow:0 8px 20px #0003;z-index:10;pointer-events:none;text-align:center}.timeline-tooltip strong{display:block;font-size:10px;color:#6f5633}.time-labels{position:relative;height:22px;font-size:9px;color:var(--muted)}.time-tick{position:absolute;transform:translateX(-50%);white-space:nowrap}.time-tick.first{transform:none}.time-tick.last{transform:translateX(-100%)}.transport-row{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:4px}.play-controls{display:flex;gap:8px;align-items:center}.play-btn{width:45px;height:45px;min-height:45px;border-radius:50%;background:var(--gold);color:#203648;font-size:16px}.step-btn{font-size:11px;min-height:33px;width:30px;background:none;color:#b3c2cf}.elapsed{display:flex;align-items:baseline;gap:6px;font:12px Georgia,serif;margin-left:12px;color:#b9cbd7;font-variant-numeric:tabular-nums}.elapsed .slash{color:#587286}.elapsed small{font:9px sans-serif;margin-left:4px;color:#6d899d}.play-options{display:flex;gap:10px;align-items:center;font-size:11px;color:var(--muted)}.play-options select{font-size:12px;padding:5px 8px}.pause-end{display:flex;align-items:center;gap:5px;margin-left:7px;white-space:nowrap}.pause-end input{accent-color:var(--gold)}.keyboard-tip{font-size:9px;color:#668398;margin-left:13px}.below-player{display:flex;align-items:center;justify-content:space-between;padding:13px 2px;gap:12px}.next-preview{font-size:10px;color:var(--muted)}.next-preview button{background:none;color:#c6d6e0;font-size:11px;min-height:28px;margin-left:10px}.below-player>p{font-size:10px;color:#6f899b}.below-player .text-button{font-size:10px;margin-left:5px}footer{display:flex;justify-content:space-between;gap:25px;color:#587285;font-size:9px;padding:25px 0 22px;border-top:1px solid #243846;margin-top:8px}
+#info-dialog{color:var(--text);width:min(1050px,calc(100vw - 26px));max-height:91vh;margin:auto;background:var(--surface);border:1px solid #405367;border-radius:14px;padding:0;box-shadow:0 25px 90px #0006;overflow:auto}#info-dialog::backdrop{background:#03101dbb;backdrop-filter:blur(5px)}.dialog-header{display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;padding:20px 27px;background:#172839f7;border-bottom:1px solid var(--line);z-index:5;backdrop-filter:blur(12px)}.dialog-header h2{font-size:24px;font-weight:500;margin-top:4px}.dialog-close{width:36px;height:36px;border-radius:50%;background:#263d51;color:#b6c8d6;font-size:22px}.dialog-body{padding:24px 28px 30px;font-size:14px}.dialog-intro{font-size:13px;line-height:2;color:#b7cbd9;margin-bottom:20px}.filter-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 18px}.filter-tabs button{padding:6px 12px;background:#21384b;border:1px solid #365369;border-radius:6px;font-size:12px}.filter-tabs button.active{color:var(--gold);border-color:#967849;background:#e3bd780e}.dialog-search{margin-bottom:18px}.catalog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.catalog-item{padding:15px 17px;border:1px solid var(--line);border-radius:8px;background:#1b3042;text-align:left;min-width:0}.catalog-item:hover{border-color:#977d4f}.catalog-item .row{display:flex;gap:10px;justify-content:space-between;align-items:center}.catalog-item small{font-size:10px;color:#8da7b9}.catalog-item h3{font-size:15px;margin:5px 0 6px;font-weight:500}.catalog-item p{font-size:11px;color:#a5bdcb;line-height:1.8}.catalog-item.current{border-color:var(--gold)}.badge{font-size:10px;display:inline-block;padding:2px 7px;line-height:1.7;background:#2c455b;color:#b2c9d9;border-radius:4px}.badge.gold{color:var(--gold);background:#e3bd7817}.badge.dead{color:#c5b6ba;background:#70586132}.badge.memory{color:#c7aedc;background:#8f6baa22}.badge.happy,.badge.alive{color:#a3d3be;background:#739f8120}.badge.uncertain{color:#acbcc7;background:#71849224}.ending-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.ending-card{border:1px solid var(--line);border-radius:9px;background:#1b2f41;padding:19px}.ending-card h3{font-size:17px;font-weight:500;margin:8px 0}.ending-card p{font-size:13px;line-height:1.95;color:#b8cbd8;margin:7px 0 12px}.ending-card .refs{margin-top:10px;display:flex;gap:5px;flex-wrap:wrap}.ending-card .text-button{margin-top:7px}.source-box{padding:19px;border:1px solid var(--line);border-radius:9px;margin-bottom:15px;line-height:2}.source-box h3{font-size:16px;font-weight:500;color:var(--gold);margin-bottom:8px}.source-box p,.source-box li{font-size:13px;color:#b9cbd7}.source-box ul{padding-left:19px;margin:0}.detail-label{font-size:11px;color:var(--gold);margin:18px 0 8px}.detail-copy{font-size:14px;line-height:2;color:#c8d6df}.current-record{padding:18px 20px;background:#264153;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;margin:17px 0}.current-record p{font-size:13px;margin-top:7px;line-height:2;color:#c6d9e4}.no-results{padding:35px;text-align:center;color:#9ab3c4;font-size:13px}.chain{display:flex;gap:12px;overflow:auto;margin:12px 0 25px;padding-bottom:14px}.chain-step{flex:1;min-width:190px;padding:15px;border:1px solid var(--line);border-radius:8px;background:#1b3043}.chain-step strong{font-size:11px;color:var(--gold)}.chain-step h4{font-size:13px;line-height:1.7;margin:6px 0}.chain-step p{font-size:12px;color:#abc0ce}.character-list{display:grid;gap:9px}.character-record{border-bottom:1px solid var(--line);padding:14px 3px;display:grid;grid-template-columns:140px 1fr;gap:20px}.character-record h3{font-size:15px;font-weight:500}.character-record small{font-size:10px;color:#82a0b6}.character-record p{font-size:12px;line-height:1.95;color:#b3c7d5}.ref-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}.dialog-status{font-size:11px;color:#7899ae;margin:12px 0}.source-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}.source-controls input{font-size:12px;max-width:100%}.source-controls button{border:1px solid #536778;color:var(--gold);padding:6px 12px;background:#243b4e;border-radius:6px;font-size:12px}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);padding:12px 20px;background:#e4edf2;color:#233e51;border-radius:8px;box-shadow:0 12px 30px #0004;font-size:12px;max-width:90vw;z-index:99}.noscript{padding:30px;background:#20374b;position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center}
+.scene-place-label{font-size:22px;font-weight:600;fill:#314f61;text-anchor:middle;letter-spacing:.03em}.scene-place-sub{font-size:12px;fill:#78939e;text-anchor:middle}.scene-place-ring{fill:#f7faf9c7;stroke:#91adb73b;stroke-width:2}.scene-place-shadow{fill:#a4bcc433}.person-node{cursor:pointer}.person-node:focus{outline:none}.person-node:focus .person-outline,.person-node:hover .person-outline{stroke:#bd955c;stroke-width:3}.person-name{font-size:18px;font-weight:600;text-anchor:middle;fill:#2b4858;paint-order:stroke;stroke:#edf4f6;stroke-width:5px;stroke-linejoin:round}.person-state{font-size:12px;text-anchor:middle;fill:#72858e;paint-order:stroke;stroke:#edf4f6;stroke-width:3px}.person-node.dead{filter:grayscale(.9)}.relation-path{fill:none;stroke-width:2;stroke-linecap:round}.relation-label{font-size:14px;text-anchor:middle;fill:#5c727e;paint-order:stroke;stroke:#edf4f6;stroke-width:7px;stroke-linejoin:round}.travel-path{fill:none;stroke:#bb9863;stroke-width:2;stroke-dasharray:4 8;opacity:.65}.scene-caption{font-size:12px;text-anchor:middle;fill:#728d99;letter-spacing:.1em}.branch-marker{font-size:11px;font-weight:600;letter-spacing:.14em;fill:#947347;text-anchor:middle}.scene-transition-tag{font-size:13px;text-anchor:middle;fill:#778c96}.ambient-cloud{animation:cloud-drift 18s ease-in-out infinite alternate}.ambient-wave{animation:wave-drift 9s ease-in-out infinite alternate}.ambient-rain{animation:rain-fall 1.8s linear infinite}.actor-aura{animation:aura-pulse 4s ease-in-out infinite}.prop{animation:prop-in .45s ease-out both}.event-panel.changed h2{animation:text-in .45s ease-out both}.scene-place-breathe{animation:place-breathe 5s ease-in-out infinite}body[data-playing=false] .ambient-cloud,body[data-playing=false] .ambient-wave,body[data-playing=false] .ambient-rain,body[data-playing=false] .actor-aura,body[data-playing=false] .scene-place-breathe{animation-play-state:paused}@keyframes cloud-drift{to{transform:translateX(25px)}}@keyframes wave-drift{to{transform:translateX(-20px)}}@keyframes rain-fall{from{transform:translate(0,-35px)}to{transform:translate(-12px,40px)}}@keyframes aura-pulse{50%{opacity:.25}}@keyframes place-breathe{50%{opacity:.5}}@keyframes prop-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}@keyframes text-in{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.ending-label{font-size:11px;font-weight:400;display:block;color:var(--gold);margin-top:3px}.aliases{font-size:10px;color:var(--muted);margin-top:5px;overflow-wrap:anywhere}.person-link{font-size:15px;text-align:left}.source-reader{margin-top:24px}.app:fullscreen{max-width:none;overflow:auto;background:var(--bg);padding-bottom:25px}.screen svg text{user-select:none}.person-name,.person-state,.relation-label{stroke:none}.top-actions button,.cast-chip,.ref-btn,.timeline-heading strong,.timeline-kicker{white-space:nowrap;flex-shrink:0}.brand h1{white-space:nowrap}.brand>div{min-width:280px}.start-btn{width:190px}.cast-chip{height:28px}.ref-btn{height:25px}.event-panel{max-height:740px;overflow:auto;scrollbar-width:thin}.timeline-heading>div{flex-shrink:0}
+.brand-icon{flex-shrink:0}.scene-relations{display:flex;gap:5px 15px;flex-wrap:wrap;margin:8px 3px 0;font-size:10px;color:#8da9ba}.scene-relation{border-left:2px solid #729e90;padding-left:7px;display:inline-flex;gap:7px;align-items:baseline;max-width:100%}.scene-relation strong{font-size:10px;color:#bacbd7;font-weight:400}.scene-relation.love{border-color:#c38c97}.scene-relation.conflict{border-color:#bd817d}.scene-relation.memory{border-color:#a091b2}.elapsed,.elapsed small,.play-options>label,.keyboard-tip{white-space:nowrap;flex-shrink:0}.play-controls,.play-options{flex-shrink:0}.keyboard-tip{display:none}
+@media(min-width:1550px){.player-layout{grid-template-columns:minmax(0,1fr) 350px}.event-panel{padding:25px 27px}.narration{font-size:14px}.result-box>p{font-size:13px}.event-panel h2{font-size:21px}.story-date{font-size:28px}}
+@media(max-width:1200px){.app{padding:0 22px}.player-layout{grid-template-columns:minmax(0,1fr) 298px;gap:15px}.event-panel{padding:18px}.narration{font-size:12px}.story-date{font-size:22px}.event-panel h2{font-size:17px;margin-top:13px}.screen-legend{gap:7px 12px}.legend-help{display:none}.keyboard-tip{display:none}.intro h2{font-size:31px}.intro-card{padding-left:0}.intro p{font-size:12px}.brand h1{font-size:19px}.top-actions button{padding:6px 11px}}
+@media(max-width:980px){.player-layout{grid-template-columns:1fr}.screen-column{order:0}.event-panel{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}.event-overline,.story-date,.date-note,.event-panel h2,.narration{grid-column:1}.result-box{grid-column:2;grid-row:1/5;margin-top:0;align-self:start}.event-panel>.mini-heading{grid-column:2;grid-row:5;margin-top:0}.cast-list{grid-column:2;grid-row:6}.props-section{grid-column:1}.ending-flash{grid-column:2;grid-row:7/9}.event-refs{grid-column:1/-1}.screen svg{aspect-ratio:1200/690}.intro h2{font-size:39px}.transport{position:sticky;bottom:8px;z-index:7;box-shadow:0 9px 35px #0006}.below-player>p{display:none}.program-strip{gap:10px}.program-label{display:none}.timeline-note{display:none}.brand h1 span{display:block;font-size:11px;margin-top:2px}.top-actions .quiet{display:none}.next-preview{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+@media(max-width:700px){.app{padding:0 13px}.topbar{padding:16px 0;gap:10px}.brand-icon{width:35px;height:35px;font-size:20px}.brand{gap:10px}.brand-en{font-size:7px;letter-spacing:.13em}.brand h1{font-size:17px}.brand h1 span{font-size:10px}.top-actions{gap:5px}.top-actions button{font-size:10px;padding:5px 8px;min-height:32px}.program-strip{padding:9px 0}.track-tabs{gap:3px}.track-tab{font-size:11px;padding:6px 10px}.track-tab small{display:none}.fullscreen-btn{font-size:22px;min-width:27px}.fullscreen-btn span{display:none}.player-layout{margin-top:14px;gap:13px}.screen svg{aspect-ratio:720/830}.screen-top{top:13px;left:13px;right:13px}.scene-region{font-size:10px;margin-left:6px}.world-badge{font-size:9px;padding:2px 8px}.scene-counter{font-size:10px}.screen-bottom{left:10px;right:10px;bottom:10px}.screen-bottom>span{display:none}.camera-controls{margin-left:auto}.screen-legend{font-size:9px;padding:10px 1px 0;gap:5px 9px}.legend-line{width:13px;margin-right:3px}.intro{padding:26px}.intro h2{font-size:31px;margin:16px 0}.intro p{font-size:12px}.intro .kicker{font-size:9px;letter-spacing:.08em}.intro .start-btn{font-size:13px;margin-top:22px}.intro-tip{font-size:9px}.event-panel{display:block;padding:20px}.story-date{font-size:24px}.event-panel h2{font-size:19px;margin-top:16px}.narration{font-size:13px}.result-box{margin-top:16px}.result-box>p{font-size:12px}.event-panel>.mini-heading{margin-top:16px}.event-refs{padding-top:16px}.transport{padding:14px 13px 12px;margin-top:14px;bottom:6px;border-radius:10px}.timeline-heading{gap:8px}.timeline-heading>div{gap:7px;align-items:flex-start;flex-direction:column}.timeline-heading strong{font-size:12px}.timeline-kicker{font-size:9px}.timeline-heading>.text-button{font-size:10px}.timeline-wrap{margin-top:15px}.time-labels{height:23px;font-size:8px}.transport-row{align-items:center}.play-controls{gap:4px}.play-btn{width:38px;height:38px;min-height:38px;font-size:14px}.step-btn{width:20px;font-size:9px}.elapsed{font-size:10px;margin-left:5px;gap:4px}.elapsed small{display:none}.play-options{gap:5px;font-size:10px}.play-options>label[for=speed]{display:none}.play-options select{font-size:10px;padding:4px}.pause-end{display:none}.below-player{padding:9px 0}.next-preview button{font-size:10px;margin-left:4px}.below-player .next-preview>span{font-size:9px}footer{font-size:8px;gap:15px;padding:16px 0;flex-direction:column}.dialog-header{padding:17px 19px}.dialog-header h2{font-size:20px}.dialog-body{padding:20px}.dialog-intro{font-size:12px}.catalog-grid,.ending-grid{grid-template-columns:1fr}.catalog-item h3{font-size:14px}.ending-card{padding:17px}.ending-card p{font-size:12px}.filter-tabs{gap:5px}.filter-tabs button{font-size:11px;padding:5px 9px}.character-record{grid-template-columns:1fr;gap:7px}.source-box{padding:16px}.source-box p,.source-box li{font-size:12px}.scene-place-label{font-size:25px}.scene-place-sub{font-size:15px}.person-name{font-size:21px}.person-state{font-size:16px}.relation-label{font-size:18px}.scene-caption{font-size:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+@media(max-width:980px){.event-panel{max-height:none;overflow:visible}.transport{margin-bottom:0}.screen-column{padding-bottom:2px}}
+@media(max-width:700px){.brand>div{min-width:0}.brand{min-width:0}.screen-column{min-width:0}.timeline-heading strong{white-space:normal}.timeline-heading>div{max-width:75%}}
+.scene-relation,.scene-relation>span,.scene-relation strong{white-space:nowrap;flex-shrink:0}.scene-relations{align-items:flex-start}.track-tabs{min-width:0}.fullscreen-btn{flex-shrink:0}
+@media print{body{background:white;color:#222}.app{padding:0}.topbar,.program-strip,.transport,.below-player,.screen-column,footer,.intro,.finished{display:none!important}.event-panel{background:white;border:1px solid #aaa;color:#222}.event-panel p,.event-panel span{color:#333}#info-dialog[open]{position:static;width:100%;max-height:none;overflow:visible;border:0;background:white;color:#222}.dialog-header{position:static;background:white}.dialog-close,.filter-tabs,.dialog-search,.text-button,.ref-btn{display:none}.ending-card,.source-box,.character-record,.catalog-item{break-inside:avoid;background:white;color:#222}.ending-card p,.source-box p,.source-box li,.character-record p,.detail-copy,.dialog-intro{color:#333}}
+</style></head>
+<body data-playing="false">
+<a href="#screen" class="skip-link">跳到故事画面</a>
+<div class="app" id="app">
+<header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true">空</span><div><div class="brand-en">A SKY FULL OF STORIES</div><h1>药娘的天空 <span>· 故事放映室</span></h1></div></div><nav class="top-actions" aria-label="工具"><button type="button" data-action="catalog">剧情目录</button><button type="button" data-action="endings" class="gold-outline">全结局</button><button type="button" data-action="source" class="quiet">说明与出处</button></nav></header>
+<div class="program-strip"><div class="program-label">选择放映</div><div class="track-tabs" id="track-tabs" role="group" aria-label="选择故事时间轨"></div><button class="fullscreen-btn" type="button" id="fullscreen-btn" data-action="fullscreen" aria-label="进入或退出全屏">⛶ <span>全屏</span></button></div>
+<main>
+<div class="player-layout">
+<section class="screen-column" aria-label="剧情动画播放器">
+<div class="screen" id="screen" tabindex="-1">
+<div class="screen-top"><div><span class="world-badge" id="world-badge">正文</span><span class="scene-region" id="scene-region">杭州</span></div><span class="scene-counter" id="scene-counter">01 / 65</span></div>
+<svg id="scene-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 690" role="img" aria-labelledby="scene-a11y-title scene-a11y-desc"><title id="scene-a11y-title">小说地点与人物的剧情示意</title><desc id="scene-a11y-desc">开始播放后，人物会随剧情切换地点，事件与关系同步更新。</desc></svg>
+<div class="screen-bottom"><span id="motion-caption">人物与地点随剧情变化</span><div class="camera-controls"><label class="sr-only" for="follow-person">跟随角色</label><select id="follow-person"><option value="all">全景镜头</option></select><button type="button" data-action="zoom-out" aria-label="缩小画面">−</button><button type="button" data-action="zoom-in" aria-label="放大画面">＋</button><button type="button" data-action="reset-camera" aria-label="恢复全景">↺</button></div></div>
+<div class="intro" id="intro"><div class="intro-card"><div class="kicker">把一整本书，放进一条时间线</div><h2>从离家那天，<br>看到每一种结局。</h2><p>跟着人物走过地点、相遇与分别。<br>正文、正式外传、转生与幸福 IF 将依次播放。</p><button type="button" class="start-btn" data-action="start"><span class="play-symbol">▶</span> 开始放映</button><div class="intro-tip" id="intro-tip">包含完整剧透 · 可随时暂停和拖动</div></div></div>
+<div class="finished hidden" id="finished"><div><span class="kicker">THE END OF THIS REEL</span><h2>这一段放映结束了</h2><p id="finished-text">每一种结局，都有它自己的时间线。</p><div class="finish-actions"><button type="button" class="start-btn" data-action="replay">↺ 再看一次</button><button type="button" data-action="endings">查看全部结局</button></div></div></div>
+</div>
+<div class="screen-legend"><span><i class="legend-dot person-dot"></i>本幕人物</span><span><i class="legend-line love"></i>亲密</span><span><i class="legend-line bond"></i>相助 / 亲友</span><span><i class="legend-line conflict"></i>冲突</span><span><i class="legend-line memory"></i>回忆 / 已逝</span><span class="legend-help">点击人物，查看此刻状态与各分支结局</span></div>
+<div class="scene-relations" id="scene-relations" aria-label="本幕人物关系"></div>
+<section class="transport" aria-label="故事时间轴与播放控制">
+<div class="timeline-heading"><div><span class="timeline-kicker">故事时间轴</span><strong id="timeline-now">2004 年春</strong></div><span class="timeline-note" id="timeline-note">时间按剧情密度展开</span><button type="button" class="text-button" data-action="catalog" id="event-count">查看全部事件 →</button></div>
+<div class="timeline-wrap" id="timeline-wrap"><div class="timeline-bands" id="timeline-bands"></div><div class="timeline-fill" id="timeline-fill"></div><div class="milestones" id="milestones" aria-hidden="true"></div><label class="sr-only" for="timeline">拖动故事时间轴</label><input id="timeline" type="range" min="0" max="1000" step="0.05" value="0" aria-valuetext="故事开头"><div class="timeline-tooltip hidden" id="timeline-tooltip"></div></div>
+<div class="time-labels" id="time-labels"></div>
+<div class="transport-row"><div class="play-controls"><button type="button" class="step-btn" data-action="previous" aria-label="上一个事件" title="上一个事件">◀</button><button type="button" class="play-btn" id="play-btn" data-action="play" aria-label="播放" aria-pressed="false">▶</button><button type="button" class="step-btn" data-action="next" aria-label="下一个事件" title="下一个事件">▶</button><div class="elapsed"><span id="elapsed">00:00</span><span class="slash">/</span><span id="total-time">00:00</span><small>放映进度</small></div></div><div class="play-options"><label for="speed">速度</label><select id="speed"><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="3">3×</option></select><label class="pause-end"><input id="pause-endings" type="checkbox">结局处暂停</label><span class="keyboard-tip">空格播放 / 暂停 · ← → 切换事件</span></div></div>
+</section>
+</section>
+<aside class="event-panel" aria-labelledby="event-title"><div class="event-overline"><span id="phase-label">离家</span><span class="event-type" id="event-type">故事事件</span></div><div class="story-date" id="story-date">2004 年春</div><p class="date-note" id="date-note"></p><h2 id="event-title">离家的那一天</h2><p class="narration" id="narration"></p><div class="result-box"><span>这件事的结果</span><p id="result-text"></p></div><div class="mini-heading">本幕人物</div><div class="cast-list" id="cast-list"></div><div class="props-section" id="props-section"><div class="mini-heading">物品与线索</div><div class="props-list" id="props-list"></div></div><div class="ending-flash hidden" id="ending-flash"></div><div class="event-refs" id="event-refs"></div></aside>
+</div>
+
+<section class="below-player"><div class="next-preview"><span>下一幕</span><button type="button" data-action="next" id="next-scene">从家中出发 →</button></div><p>这里用地点和人物呈现剧情，空间位置是示意。<button type="button" class="text-button" data-action="source">查看叙事层与日期说明</button></p></section>
+</main>
+<footer><span>《药娘的天空》· 乱世银娘 / Transky 全体贡献者<br>基于同一底本的完整阅读资料制作 · 离线放映（HTML + 同目录数据脚本）</span><span id="footer-coverage">正文、正式外传、转生、IF 与前传</span></footer>
+</div>
+<dialog id="info-dialog" aria-labelledby="dialog-title"><header class="dialog-header"><div><span class="kicker" id="dialog-kicker">故事档案</span><h2 id="dialog-title" tabindex="-1">全部结局</h2></div><button type="button" class="dialog-close" data-action="close-dialog" aria-label="关闭">×</button></header><div id="dialog-body" class="dialog-body"></div></dialog>
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<noscript><div class="noscript">请在支持 JavaScript 的浏览器中打开这份 HTML。数据由同目录的 story-screening-data-*.js 提供，播放不需要联网。</div></noscript>
+<script charset="utf-8" src="story-screening-data-01.js"></script>
+<script charset="utf-8" src="story-screening-data-02.js"></script>
+<script charset="utf-8" src="story-screening-data-03.js"></script>
+<script>(() => {
+  'use strict';
+const __rawData=(window.__TRANSKY_SCREEN_DATA__||[]).join('');
+if(!__rawData){document.body.innerHTML='<div style="padding:24px;font:16px/1.8 sans-serif">数据文件缺失：请将 story-screening-data-*.js 与 story-screening.html 放在同一目录。</div>';throw new Error('story-screening-data data missing')}
+  const D = JSON.parse(__rawData);
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const frameById = new Map(D.frames.map(f => [f.id, f]));
+  const trackById = new Map(D.tracks.map(t => [t.id, t]));
+  const peopleByName = new Map(D.endings.allCharacters.map(c => [c.name, c]));
+  const allOrder = ['main', 'fang', 'rebirth', 'if'];
+  const regionNames = {hangzhou:'杭州',suzhou:'苏州 · 苏家镇',smallcity:'浙江 · 小城市',wuhan:'武汉',ningbo:'宁波',haining:'海宁',village:'故乡与村落',chicago:'芝加哥',taiwan:'台湾',other:'故事中的另一处'};
+  const kindNames = {home:'家与栖身之处',station:'出发与抵达',shop:'店铺与日常',work:'劳动的地方',park:'公园与街角',sea:'海边',hospital:'医院',grave:'告别与纪念',school:'校园',temple:'寺庙',city:'城市',other:'场景'};
+  const stateNames = {alive:'在场',dead:'已逝',memory:'回忆画面',unknown:'去向未明'};
+  const toneNames = {alive:'继续生活',dead:'死亡',uncertain:'未完整交代',parted:'分离',reborn:'转生',happy:'另一种幸福'};
+  const palette = {'苏雨晴':'#c38c97','林夕晨':'#879fb0','莫空':'#6f8a7e','张思凡':'#b59a70','方莜莜':'#a496b1','胡玉牛':'#8ba794','天语遥':'#a08db7','夏归月':'#90acbd','柳韵':'#bc8e73','安念':'#7e98a3','橘子':'#c3a06c','苏榕槐':'#87959d','苏雨晴的母亲':'#a6a07b','曲奇':'#405365','咖啡':'#93899e','朱雀':'#c88e75','黑皇':'#4a5c66'};
+  const colors = ['#839fad','#a996ae','#a5ab80','#b59381','#809e96','#9997b7','#a09b7c'];
+  function personColor(name) { if (palette[name]) return palette[name]; let h=0; for (const ch of name) h=(h*31+ch.charCodeAt(0))>>>0; return colors[h%colors.length]; }
+  function fmtTime(n) { n = Math.max(0, Math.floor(n)); return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0'); }
+  function unitLabel(key) { const u=D.units[key]; return key[0]==='c' ? '第'+Number(key.slice(1))+'章' : (u ? u.title.replace(/^番外[：:]?/,'').slice(0,16) : key); }
+  function refButtons(refs) { return [...new Set(refs||[])].map(r=>`<button type="button" class="ref-btn" data-action="unit" data-key="${esc(r)}">${esc(unitLabel(r))}</button>`).join(''); }
+  function node(tag, attrs={}, text) { const el=document.createElementNS(svgNS,tag); for (const [k,v] of Object.entries(attrs)) el.setAttribute(k,String(v)); if(text!==undefined) el.textContent=text; return el; }
+  function add(parent, tag, attrs, text) { const el=node(tag,attrs,text); parent.appendChild(el); return el; }
+  function label(parent, x, y, text, size=18, color='#355466', cls='', attrs={}) { return add(parent,'text',{x,y,'font-size':size,fill:color,'text-anchor':'middle','font-family':'sans-serif',class:cls,...attrs},text); }
+  function lines(text,max=9) { const chars=Array.from(text||''); const result=[]; for(let i=0;i<chars.length;i+=max) result.push(chars.slice(i,i+max).join('')); return result.length?result:['']; }
+  const reduced = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+  const S = {track:'all',entries:[],index:0,head:0,total:0,playing:false,speed:1,started:false,lastStamp:null,raf:null,paintStamp:0,autoPaused:null,zoom:1,follow:'all',mobile:window.innerWidth<=700,scene:null,modal:null,modalHistory:[],returnFocus:null,pdfURL:null,toastTimer:null};
+  const current = () => S.entries[S.index] && S.entries[S.index].frame;
+  const viewport = frame => S.mobile?{w:720,h:frame&&frame.locations.length===3?1120:830}:{w:1200,h:690};
+
+  // Each scene is a diagram of the current narrative space. No coordinate is a real-world map location.
+  function layout(frame) {
+    const n=frame.locations.length, {w,h}=viewport(frame);
+    let anchors;
+    if(S.mobile) anchors=n===1?[[360,220]]:n===2?[[190,205],[530,205]]:[[190,160],[530,160],[360,620]];
+    else anchors=n===1?[[600,205]]:n===2?[[315,205],[885,205]]:[[220,190],[600,190],[980,190]];
+    const places=new Map(), cast=new Map();
+    frame.locations.forEach((loc,i)=> {
+      const [x,y]=anchors[i]; places.set(loc.id,{...loc,x,y});
+      const members=frame.cast.filter(c=>c.at===loc.id);
+      let maxCols=S.mobile?(n===1||n===3&&i===2||n===2&&members.length>4?3:2):(n===1?4:n===2&&members.length>6?4:n===2?3:2);
+      if(!S.mobile && members.length>6) maxCols=3;
+      const cols=Math.min(maxCols,members.length||1);
+      const gap=S.mobile?(n===1||n===3&&i===2?157:120):(n===1?166:n===2&&members.length>6?128:n===2?140:132);
+      const crowded = S.mobile && n===3 && i===2 && members.length>6;
+      const rowGap=crowded?115:140;
+      members.forEach((c,j)=> {
+        const row=Math.floor(j/cols), count=Math.min(cols,members.length-row*cols);
+        cast.set(c.name,{...c,x:x+(j%cols-(count-1)/2)*gap,y:y+(crowded?160:170)+row*rowGap,scale:crowded?.82:1,place:loc.name});
+      });
+    });
+    return {places,cast,w,h};
+  }
+
+  function sky(svg,frame,w,h) {
+    const themes={calm:['#e7eff0','#d4e2e7','#e4c793'],warm:['#f2eddf','#dae6df','#e6c47e'],joy:['#f3eddb','#dce7df','#ead294'],rain:['#d9e4e9','#b9cdd7','#c3d2d7'],danger:['#e1dfe1','#bbc9d1','#d3bac0'],grief:['#dce3e8','#bdced6','#ccd6da'],hope:['#e9eee1','#cfdfdc','#e4cb91'],mystery:['#e8e3ee','#d0d8e2','#d7c7de']};
+    const c=themes[frame.mood]||themes.calm;
+    const defs=add(svg,'defs');
+    const grad=add(defs,'linearGradient',{id:'sky-wash',x1:'0',y1:'0',x2:'0',y2:'1'});
+    add(grad,'stop',{offset:'0%','stop-color':c[0]}); add(grad,'stop',{offset:'100%','stop-color':c[1]});
+    add(svg,'rect',{x:0,y:0,width:w,height:h,fill:'url(#sky-wash)'});
+    add(svg,'circle',{cx:w*.84,cy:h*.16,r:S.mobile?53:66,fill:c[2],opacity:.62});
+    add(svg,'path',{d:`M0 ${h*.49} Q${w*.21} ${h*.32} ${w*.45} ${h*.48} T${w} ${h*.43} L${w} ${h} L0 ${h}Z`,fill:'#bfd2d1',opacity:.38});
+    add(svg,'path',{d:`M0 ${h*.66} Q${w*.25} ${h*.46} ${w*.57} ${h*.67} T${w} ${h*.6} L${w} ${h} L0 ${h}Z`,fill:'#f0f5ef',opacity:.61});
+    const clouds=add(svg,'g',{class:'ambient-cloud',fill:'#ffffff',opacity:.42});
+    for(const [x,y,s] of [[.16,.16,1],[.64,.12,.74],[.88,.37,.64]]) {
+      const g=add(clouds,'g',{transform:`translate(${w*x} ${h*y}) scale(${s})`});
+      add(g,'ellipse',{cx:0,cy:0,rx:60,ry:10});add(g,'ellipse',{cx:-17,cy:-8,rx:23,ry:18});add(g,'ellipse',{cx:15,cy:-12,rx:26,ry:22});
+    }
+    const grass=add(svg,'g',{stroke:'#9eb8b3','stroke-width':2,opacity:.44,fill:'none'});
+    for(let i=0;i<14;i++){const x=32+(i*97+23)%(w-60),y=h*.76+(i%4)*31;add(grass,'path',{d:`M${x} ${y}q-7 -17 -10 -12 M${x} ${y}q6 -17 12 -17`});}
+    if(['rain','danger','grief'].includes(frame.mood)) {
+      const rain=add(svg,'g',{class:'ambient-rain',stroke:'#7595a5','stroke-width':1,opacity:frame.mood==='grief'?.13:.22});
+      for(let i=0;i<32;i++){const x=(i*127)%w,y=(i*73)%(h-80);add(rain,'path',{d:`M${x} ${y}l-7 20`});}
+    }
+    if(frame.mood==='joy'||frame.track==='if') {
+      const confetti=add(svg,'g',{opacity:.6});
+      for(let i=0;i<18;i++){const x=32+(i*113)%(w-60),y=70+(i*79)%(h-150);add(confetti,'path',{d:`M${x} ${y}q6 -7 10 0q-6 6 -10 0`,fill:i%2?'#d3a0ac':'#c6ad6e'});}
+    }
+  }
+
+  function drawPlace(parent,p,mobile) {
+    const g=add(parent,'g',{transform:`translate(${p.x} ${p.y})`,'data-location':p.id});
+    add(g,'ellipse',{cx:0,cy:12,rx:mobile?118:125,ry:40,fill:'#afc6c5',opacity:.27,class:'scene-place-shadow'});
+    add(g,'ellipse',{cx:0,cy:1,rx:105,ry:59,fill:'#f7faf9',opacity:.63,stroke:'#b2c8cb','stroke-width':1.3,class:'scene-place-ring'});
+    const b=add(g,'g',{transform:'translate(0 -17)',stroke:'#7193a0','stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'});
+    const rect=(x,y,width,height,fill,attrs={})=>add(b,'rect',{x,y,width,height,fill,...attrs});
+    const path=(d,fill='#f1f3e9',attrs={})=>add(b,'path',{d,fill,...attrs});
+    const tree=(x,y,s=1)=>{const t=add(b,'g',{transform:`translate(${x} ${y}) scale(${s})`});add(t,'path',{d:'M0 5V-45',fill:'none',stroke:'#87a38b','stroke-width':4});add(t,'ellipse',{cx:0,cy:-43,rx:20,ry:27,fill:'#a9c1a2',stroke:'#87a38b'});};
+    switch(p.kind) {
+      case 'home':
+        rect(-47,-43,94,62,'#f2e9d2');path('M-60 -43 L0 -88 L60 -43 Z','#99adb1');rect(-10,-17,20,36,'#b2c7c7');rect(-34,-26,16,18,'#d9e8e6');rect(19,-26,16,18,'#d9e8e6');rect(28,-84,10,20,'#c0aaa0');break;
+      case 'station':
+        rect(-73,-40,146,56,'#e5ece7',{rx:5});rect(-56,-32,31,23,'#a6c4cd',{rx:2});rect(-16,-32,31,23,'#a6c4cd',{rx:2});rect(25,-32,31,23,'#a6c4cd',{rx:2});path('M-83 29H83 M-75 38H75','none');for(const x of[-52,52])add(b,'circle',{cx:x,cy:17,r:8,fill:'#748c97'});path('M-35 -44L-19 -64H19L35 -44','none');break;
+      case 'shop':case 'work':
+        rect(-54,-48,108,69,'#f1eadb');rect(-61,-62,122,20,'#99b6b8',{rx:2});path('M-61 -42L-67 -23H67L61 -42Z','#c2aa89');for(let i=0;i<6;i++)rect(-60+i*21,-42,10,19,'#efe5d5',{'stroke-width':0});rect(-41,-15,40,26,'#c8dfe0');rect(19,-15,24,36,'#bdd0ca');break;
+      case 'hospital':
+        rect(-56,-61,112,80,'#ecf1eb',{rx:3});rect(-13,-16,26,35,'#b9d2d5');for(const x of[-41,24])rect(x,-16,17,19,'#b7d0d9');path('M-6 -51H6V-40H17V-29H6V-18H-6V-29H-17V-40H-6Z','#bd9692',{'stroke-width':0});break;
+      case 'school':
+        rect(-68,-38,136,57,'#eee8d3');rect(-18,-69,36,88,'#e6e1cc');path('M-24 -69L0 -88L24 -69Z','#8ea8ad');for(const x of[-54,-32,22,45])rect(x,-26,12,19,'#bad0d1');rect(-8,-8,16,27,'#9db8bb');add(b,'circle',{cx:0,cy:-45,r:10,fill:'#f3f4e8'});path('M0 -51V-45L5 -42','none');break;
+      case 'park':
+        tree(-49,-1,1.15);tree(49,-2,.9);rect(-32,-14,63,10,'#b5a185');rect(-30,1,58,6,'#b5a185');path('M-22 7V23 M22 7V23','none');break;
+      case 'grave':
+        tree(-69,3,.78);path('M-27 20V-45Q0 -75 27 -45V20Z','#b9c7c7');rect(-35,16,70,10,'#a4b5b9',{rx:3});path('M-10 -18H10 M-10 -8H10','none',{stroke:'#8ba0a5'});add(b,'ellipse',{cx:48,cy:15,rx:19,ry:8,fill:'#ede4d5',stroke:'none'});for(let i=0;i<4;i++)add(b,'circle',{cx:39+i*6,cy:8-(i%2)*7,r:5,fill:'#cfb685',stroke:'none'});break;
+      case 'temple':
+        rect(-47,-40,94,59,'#e7d7c0');path('M-66 -38Q-29 -42 0 -75Q30 -42 66 -38Q35 -20 0 -28Q-34 -20 -66 -38Z','#8da3a9');rect(-12,-9,24,28,'#baa68a');path('M-32 -25V18 M32 -25V18','none');break;
+      case 'sea': {
+        const wave=add(b,'g',{class:'ambient-wave',fill:'none',stroke:'#95bdc8','stroke-width':4});for(let i=0;i<3;i++)add(wave,'path',{d:`M-88 ${i*18-18}q18 -15 36 0t36 0t36 0t36 0t36 0`});path('M3 -23V-81L39 -31Z','#e8e7d7');path('M-27 -17H43L27 2H-13Z','#9daeb1');break;}
+      default:
+        rect(-70,-36,38,54,'#c2d2d1');rect(-25,-75,48,93,'#e2e8df');rect(31,-47,39,65,'#b8cccd');for(const x of[-59,-45,-13,5,43,56])for(let j=0;j<2;j++)rect(x,-25-j*19,7,10,'#86a9b6',{'stroke-width':0});path('M-85 24H85','none');
+    }
+    const split=lines(p.name,mobile?12:13), size=mobile?24:21;
+    split.forEach((s,i)=>label(g,0,65+i*(size+2),s,size,'#314f61','scene-place-label'));
+    if(split.length===1)label(g,0,65+split.length*(size+2),kindNames[p.kind]||'剧情场景',mobile?14:11,'#78939e','scene-place-sub');
+    return g;
+  }
+
+  function drawActor(parent,p) {
+    const color=p.state==='dead'?'#96a3aa':personColor(p.name);
+    const g=add(parent,'g',{class:'person-node '+p.state,'data-person':p.name,tabindex:0,role:'button','aria-label':p.name+'，'+stateNames[p.state]+'，'+(p.note||''),transform:`translate(${p.x} ${p.y}) scale(${p.scale})`});
+    add(g,'title',{},p.name+' · '+(p.note||stateNames[p.state]));
+    add(g,'ellipse',{cx:0,cy:32,rx:33,ry:9,fill:'#7796a0',opacity:.16});
+    add(g,'circle',{cx:0,cy:-5,r:43,fill:color,opacity:.11,class:'actor-aura'});
+    add(g,'circle',{cx:0,cy:-5,r:38,fill:'#f3f4ee','fill-opacity':p.state==='memory'?.65:.92,stroke:p.state==='memory'?'#b09cbf':'#d1dddc','stroke-width':1.5,'stroke-dasharray':p.state==='memory'?'3 4':'none',class:'person-outline'});
+    const pet=['曲奇','咖啡','朱雀','黑皇'].includes(p.name);
+    if(pet) {
+      if(p.name==='朱雀') {add(g,'ellipse',{cx:0,cy:7,rx:19,ry:23,fill:'#cbb58d',stroke:'none'});add(g,'circle',{cx:0,cy:-17,r:13,fill:'#d3a385'});add(g,'path',{d:'M9 -16L21 -12L9 -8Z',fill:'#c99460'});add(g,'circle',{cx:4,cy:-21,r:2,fill:'#4a5455'});add(g,'path',{d:'M-7 27v9m15 -9v9',stroke:'#bb976e','stroke-width':2});}
+      else {const isCat=p.name==='曲奇',isMouse=p.name==='咖啡';add(g,'ellipse',{cx:0,cy:12,rx:isMouse?17:22,ry:20,fill:color});add(g,'circle',{cx:0,cy:-13,r:19,fill:color});if(isCat){add(g,'path',{d:'M-18 -23L-17 -40L-3 -30M3 -30L17 -40L18 -23',fill:color,stroke:color,'stroke-width':2});}else{add(g,'circle',{cx:-17,cy:-29,r:isMouse?10:9,fill:color});add(g,'circle',{cx:17,cy:-29,r:isMouse?10:9,fill:color});}for(const x of[-6,6])add(g,'circle',{cx:x,cy:-14,r:2,fill:'#e4ddba'});add(g,'path',{d:'M-2 -5L0 -2L2 -5Z',fill:'#d9adb1'});add(g,'path',{d:isMouse?'M15 24Q48 23 31 2':'M19 25Q48 12 28 -2',fill:'none',stroke:color,'stroke-width':isMouse?2:7,'stroke-linecap':'round'});}
+    } else {
+      const longHair=['苏雨晴','林夕晨','方莜莜','天语遥','夏归月','柳韵','苏雨晴的母亲','莫语默','叶洛夜','苏慕夕','董花火'].includes(p.name);
+      if(longHair)add(g,'path',{d:'M-18 -22Q-18 -40 0 -39Q19 -39 20 -20L23 20H-23Z',fill:'#4e5f66'});
+      add(g,'path',{d:'M-27 27Q-25 8 -10 5H10Q25 8 27 27Q0 38 -27 27Z',fill:color});
+      add(g,'path',{d:'M-7 0V9L0 15L7 9V0Z',fill:'#e7d1be'});
+      add(g,'ellipse',{cx:0,cy:-16,rx:14,ry:18,fill:'#ead7c5'});
+      add(g,'path',{d:longHair?'M-15 -14Q-18 -36 0 -36Q19 -35 15 -16Q4 -19 -1 -29Q-6 -18 -15 -14Z':'M-15 -17Q-20 -39 2 -36Q20 -34 15 -14L8 -25L-4 -22L-8 -27Z',fill:'#50626b'});
+      add(g,'path',{d:'M-6 -15h1M5 -15h1',stroke:'#53636a','stroke-width':1.8,'stroke-linecap':'round'});
+      add(g,'path',{d:'M-3 -7Q0 -5 3 -7',fill:'none',stroke:'#b68e84','stroke-width':1.2});
+      add(g,'path',{d:'M-9 11L0 18L9 11',fill:'none',stroke:'#ffffff',opacity:.55,'stroke-width':1.5});
+    }
+    const split=lines(p.name,7), fontSize=p.name.length>8?(S.mobile?18:15):(S.mobile?21:18);
+    split.forEach((s,i)=>label(g,0,58+i*(fontSize+2),s,fontSize,'#2b4858','person-name',{style:`font-size:${fontSize}px`,stroke:'none'}));
+    let note=p.note||'';
+    if(p.state==='dead')note='已逝 · '+note;
+    if(p.state==='memory')note='回忆 · '+note;
+    if(p.state==='unknown')note='未明 · '+note;
+    const notes=lines(note,S.mobile?8:10);
+    notes.slice(0,2).forEach((s,i)=>label(g,0,58+split.length*(fontSize+2)+i*(S.mobile?17:14),s,S.mobile?14:11,p.state==='memory'?'#867497':'#72858e','person-state',{style:`font-size:${S.mobile?14:11}px`,stroke:'none'}));
+    return g;
+  }
+
+  function pathRelation(parent,r,index) {
+    const tone={bond:'#82a79b',love:'#be8e9a',conflict:'#bb817e',memory:'#a697b4'}[r.tone]||'#8ba9b6';
+    const g=add(parent,'g',{'data-relation':r.a+'|'+r.b});
+    const path=add(g,'path',{class:'relation-path',fill:'none',stroke:tone,'stroke-width':2.3,'stroke-dasharray':r.tone==='memory'?'5 7':r.tone==='conflict'?'3 4':'none'});
+    add(g,'title',{},r.a+' · '+r.b+'：'+r.label);
+    const text=label(g,0,0,index===0?r.label:'',S.mobile?17:14,tone,'relation-label',{stroke:'none'});
+    return {g,path,text,r,index};
+  }
+
+  function drawScene(frame,previous,animate=false) {
+    const svg=$('scene-svg'), L=layout(frame), P=previous&&previous.track===frame.track?layout(previous):null;
+    svg.innerHTML='';svg.style.aspectRatio=L.w+'/'+L.h;
+    add(svg,'title',{id:'scene-a11y-title'},frame.title+' · '+frame.date);
+    add(svg,'desc',{id:'scene-a11y-desc'},frame.locations.map(l=>l.name).join('、')+'。'+frame.cast.map(c=>c.name+'：'+(c.note||stateNames[c.state])).join('；')+'。'+frame.result);
+    sky(svg,frame,L.w,L.h);
+    label(svg,L.w/2,S.mobile?80:82,frame.title,S.mobile?21:22,'#577583','scene-caption',{'letter-spacing':'.05em'});
+    const incoming=previous&&previous.track!==frame.track;
+    const subtitle=incoming?'进入'+trackById.get(frame.track).short+' · '+(frame.track==='if'?'独立假设分支':frame.track==='rebirth'?'死亡之后的另一世':'切换叙事视角'):(frame.track==='if'?'独立的 IF 时间线':frame.track==='prequel'?'正文以前的补充记忆':frame.cast.some(c=>c.state==='memory')?'虚线人物表示回忆 / 记忆画面':'人物位置为剧情空间示意');
+    label(svg,L.w/2,S.mobile?106:108,subtitle,S.mobile?14:12,frame.track==='if'?'#9e737e':'#78909b','scene-transition-tag');
+    const road=add(svg,'g',{fill:'none',stroke:'#d0baa0','stroke-width':2.5,'stroke-dasharray':'4 9',opacity:.48});
+    const places=[...L.places.values()];
+    for(let i=1;i<places.length;i++){const a=places[i-1],b=places[i];add(road,'path',{d:`M${a.x} ${a.y+20}Q${(a.x+b.x)/2} ${Math.max(a.y,b.y)+120} ${b.x} ${b.y+20}`});}
+    const pg=add(svg,'g',{'data-layer':'places'});
+    for(const p of L.places.values()) drawPlace(pg,p,S.mobile);
+    const trailg=add(svg,'g',{'data-layer':'movement'});
+    const rg=add(svg,'g',{'data-layer':'relationships'});
+    const cg=add(svg,'g',{'data-layer':'characters'});
+    const actors=[];
+    for(const p of L.cast.values()) {
+      const old=P&&P.cast.get(p.name);let from={x:p.x,y:p.y};let entering=!old;
+      if(animate&&!reduced){
+        if(old)from={x:old.x,y:old.y}; else from={x:p.x+(p.x>L.w/2?95:-95),y:p.y+20};
+        if(old && old.place!==p.place && Math.abs(old.x-p.x)<35 && Math.abs(old.y-p.y)<35)from={x:p.x-135,y:p.y+5};
+      }
+      let trail=null;
+      if(animate&&!reduced&&old&&old.place!==p.place) trail=add(trailg,'path',{d:`M${from.x} ${from.y+25}Q${(from.x+p.x)/2} ${Math.min(from.y,p.y)-50} ${p.x} ${p.y+25}`,class:'travel-path',fill:'none',stroke:'#b89767','stroke-width':2,'stroke-dasharray':'4 8',opacity:.4});
+      actors.push({p,from,entering,g:drawActor(cg,p),trail});
+    }
+    const relations=frame.relations.slice(0,4).map((r,i)=>pathRelation(rg,r,i));
+    S.scene={svg,frame,L,actors,relations,elapsed:animate&&!reduced?0:2,duration:1.8,incoming};
+    updateScene(0);
+  }
+
+  function updateScene(dt) {
+    const scene=S.scene;if(!scene)return;
+    scene.elapsed+=dt;
+    const t=clamp(scene.elapsed/scene.duration,0,1),e=1-Math.pow(1-t,3),positions=new Map();
+    for(const a of scene.actors){const x=a.from.x+(a.p.x-a.from.x)*e,y=a.from.y+(a.p.y-a.from.y)*e; a.g.setAttribute('transform',`translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${a.p.scale})`);a.g.setAttribute('opacity',String(a.entering?clamp(.25+e*.75,0,1):1));positions.set(a.p.name,{x,y});if(a.trail)a.trail.setAttribute('opacity',String((1-t)*.7));}
+    for(const rel of scene.relations){const a=positions.get(rel.r.a),b=positions.get(rel.r.b);if(!a||!b)continue;const midx=(a.x+b.x)/2,midy=(a.y+b.y)/2;const sameColumn=Math.abs(a.x-b.x)<35;const bend=60+(rel.index%2)*13;let cx=midx,cy=Math.min(a.y,b.y)-bend;if(sameColumn){cx=midx+67;cy=midy;}rel.path.setAttribute('d',`M${a.x} ${a.y-13}Q${cx} ${cy} ${b.x} ${b.y-13}`);rel.text.setAttribute('x',String(sameColumn?midx+48:midx));rel.text.setAttribute('y',String(sameColumn?midy:midy/2+cy/2-15));rel.g.setAttribute('opacity',String(.5+.5*e));}
+    applyCamera(positions);
+  }
+
+  function applyCamera(positions) {
+    if(!S.scene)return;const {w,h}=S.scene.L;let zoom=S.zoom,cx=w/2,cy=h/2;
+    if(S.follow!=='all') { const p=(positions&&positions.get(S.follow))||S.scene.L.cast.get(S.follow); if(p){zoom=Math.max(zoom,1.45);cx=p.x;cy=p.y-35;} }
+    const vw=w/zoom,vh=h/zoom;const x=clamp(cx-vw/2,Math.min(0,w-vw),Math.max(0,w-vw)),y=clamp(cy-vh/2,Math.min(0,h-vh),Math.max(0,h-vh));
+    S.scene.svg.setAttribute('viewBox',`${x.toFixed(1)} ${y.toFixed(1)} ${vw.toFixed(1)} ${vh.toFixed(1)}`);
+  }
+
+  function buildEntries(track) {
+    const order=track==='all'?allOrder:[track];let start=0;const result=[];
+    order.forEach(t=>D.frames.filter(f=>f.track===t).forEach(f=>{result.push({frame:f,start,end:start+f.duration});start+=f.duration;}));
+    return {entries:result,total:start};
+  }
+  function indexAt(time) {let lo=0,hi=S.entries.length-1;while(lo<hi){const mid=Math.floor((lo+hi)/2);if(time>=S.entries[mid].end)lo=mid+1;else hi=mid;}return lo;}
+  function setTrack(id,options={}) {
+    if(!trackById.has(id))return;
+    pause();S.track=id;const program=buildEntries(id);S.entries=program.entries;S.total=program.total;S.head=0;S.index=0;S.autoPaused=null;S.zoom=1;S.follow='all';
+    $('finished').classList.add('hidden');
+    if(options.started){S.started=true;$('intro').classList.add('hidden');}
+    renderTabs();renderTimeline();showFrame(0,false);updateTransport();
+  }
+  function renderTabs(){ $('track-tabs').innerHTML=D.tracks.map(t=>`<button type="button" class="track-tab ${S.track===t.id?'active':''}" data-action="track" data-track="${t.id}" aria-pressed="${S.track===t.id}">${esc(t.name)}<small>${t.id==='all'?D.frames.filter(f=>f.track!=='prequel').length:D.frames.filter(f=>f.track===t.id).length} 幕</small></button>`).join(''); }
+  function shortDate(f){let s=f.date.replace(/正式外传[·・]/g,'').replace(/幸福IF[·・]/g,'').replace(/前传[·・]/g,'').replace(/\s/g,'');return s.length>12?s.slice(0,12)+'…':s;}
+  function renderTimeline() {
+    const bands=[];S.entries.forEach((e,i)=>{const key=S.track==='all'?e.frame.track:e.frame.phase;const last=bands[bands.length-1];if(last&&last.key===key)last.end=e.end;else bands.push({key,start:e.start,end:e.end,frame:e.frame,index:i});});
+    $('timeline-bands').innerHTML=bands.map((b,i)=>`<span class="timeline-band" style="width:${(b.end-b.start)/S.total*100}%;background:${S.track==='all'?trackById.get(b.frame.track).color:['#739dae','#7aa697','#a293b1','#b39f76'][i%4]}" title="${esc(S.track==='all'?trackById.get(b.frame.track).short:b.key)}"></span>`).join('');
+    $('milestones').innerHTML=S.entries.map((e,i)=>e.frame.endings.length?`<span class="milestone ending" style="left:${e.start/S.total*100}%"></span>`:i%4===0?`<span class="milestone" style="left:${e.start/S.total*100}%"></span>`:'').join('');
+    let ticks;
+    if(S.track==='all')ticks=bands.map(b=>({pos:(b.start+b.end)/2/S.total*100,text:S.mobile?({main:'正文',fang:'外传',rebirth:'转生',if:'IF'}[b.frame.track]):trackById.get(b.frame.track).short}));
+    else {const n=S.mobile?3:5;ticks=Array.from({length:n},(_,i)=>{const index=Math.round((S.entries.length-1)*i/(n-1)),e=S.entries[index];return {pos:i===n-1?100:e.start/S.total*100,text:shortDate(e.frame)};});}
+    $('time-labels').innerHTML=ticks.map((t,i)=>`<span class="time-tick ${t.pos<3?'first':''} ${t.pos>97?'last':''}" style="left:${t.pos}%">${esc(t.text)}</span>`).join('');
+    $('event-count').textContent=S.entries.length+' 幕事件 →';$('total-time').textContent=fmtTime(S.total);
+    $('timeline-note').textContent=S.track==='all'?'按剧情密度展开 · 色段代表叙事分支':'时间按剧情密度展开 · 金点标示阶段结果';
+  }
+  function showFrame(index,animate) {
+    const previous=current();S.index=clamp(index,0,S.entries.length-1);const f=current();
+    $('world-badge').textContent=trackById.get(f.track).short;
+    $('world-badge').className='world-badge'+(f.track==='if'||f.track==='rebirth'?' branch':'')+(f.cast.some(c=>c.state==='memory')?' dream':'');
+    $('scene-region').textContent=regionNames[f.region]||f.region;
+    $('scene-counter').textContent=String(S.index+1).padStart(2,'0')+' / '+S.entries.length;
+    $('phase-label').textContent=f.phase;$('event-type').textContent=f.endings.length?'阶段结果':'故事事件';
+    $('story-date').textContent=f.date;$('date-note').textContent=f.timeNote||'具体日期未明，按叙述顺序放映。';$('event-title').textContent=f.title;
+    $('narration').textContent=f.narration;$('result-text').textContent=f.result;
+    $('cast-list').innerHTML=f.cast.map(c=>`<button type="button" class="cast-chip ${esc(c.state)}" data-person="${esc(c.name)}" title="${esc(c.note)}"><span class="dot" style="--who:${personColor(c.name)}"></span>${esc(c.name)}${c.state==='dead'?' · 已逝':c.state==='memory'?' · 回忆':''}</button>`).join('');
+    $('props-section').classList.toggle('hidden',!f.items.length);$('props-list').innerHTML=f.items.map(i=>`<span class="prop">${esc(i)}</span>`).join('');
+    $('ending-flash').classList.toggle('hidden',!f.endings.length);$('ending-flash').innerHTML='<strong>这一幕留下的结果</strong>'+f.endings.map(e=>`<p>${esc(e.name)}：${esc(e.text)}</p>`).join('');
+    $('event-refs').innerHTML=refButtons(f.refs);$('timeline-now').textContent=f.date;
+    $('scene-relations').innerHTML=f.relations.map(r=>`<span class="scene-relation ${esc(r.tone)}"><span>${esc(r.a)} · ${esc(r.b)}</span><strong>${esc(r.label)}</strong></span>`).join('');
+    $('scene-relations').classList.toggle('hidden',!f.relations.length);
+    $('follow-person').innerHTML='<option value="all">全景镜头</option>'+f.cast.map(c=>`<option value="${esc(c.name)}">跟随 · ${esc(c.name)}</option>`).join('');
+    if(S.follow!=='all'&&!f.cast.some(c=>c.name===S.follow)){$('follow-person').insertAdjacentHTML('beforeend',`<option value="${esc(S.follow)}">${esc(S.follow)} · 本幕未出场</option>`);}
+    $('follow-person').value=S.follow;
+    $('motion-caption').textContent=S.follow!=='all'&&!f.cast.some(c=>c.name===S.follow)?S.follow+'本幕未出场 · 暂用全景':f.locations.map(l=>l.name).join(' / ');
+    $('next-scene').textContent=S.entries[S.index+1]?((S.entries[S.index+1].frame.track!==f.track?trackById.get(S.entries[S.index+1].frame.track).short+' · ':'')+S.entries[S.index+1].frame.title+' →'):'本条放映的结尾 · 查看全结局';
+    document.querySelector('.event-panel').classList.remove('changed');
+    drawScene(f,previous,animate);
+    document.querySelector('.event-panel').classList.add('changed');
+  }
+  function updateTransport(){const value=S.total?clamp(S.head/S.total*1000,0,1000):0;$('timeline').value=String(value);$('timeline').setAttribute('aria-valuetext',`${current().date}，${current().title}，第${S.index+1}幕，共${S.entries.length}幕`);$('timeline-fill').style.width=(value/10)+'%';$('elapsed').textContent=fmtTime(S.head);$('play-btn').textContent=S.playing?'Ⅱ':'▶';$('play-btn').setAttribute('aria-label',S.playing?'暂停':'播放');$('play-btn').setAttribute('aria-pressed',String(S.playing));document.body.dataset.playing=String(S.playing);}
+  function begin(){S.started=true;$('intro').classList.add('hidden');$('finished').classList.add('hidden');}
+  function pause(){S.playing=false;S.lastStamp=null;if(S.raf!==null){cancelAnimationFrame(S.raf);S.raf=null;}if(S.entries.length)updateTransport();}
+  function play(){
+    begin();if(S.head>=S.total)seek(0,false);
+    if(S.autoPaused===S.index){const next=S.index+1;S.autoPaused=null;if(next>=S.entries.length){finish();return;}S.head=S.entries[next].start;showFrame(next,true);}
+    S.playing=true;S.lastStamp=null;updateTransport();if(S.raf===null)S.raf=requestAnimationFrame(tick);
+  }
+  function finish(){pause();S.head=S.total;updateTransport();$('finished-text').textContent=S.track==='all'?'正文、莜莜外传、转生与幸福 IF 均已放映。人物的最后记录还可以继续查阅。':trackById.get(S.track).lead;$('finished').classList.remove('hidden');}
+  function tick(timestamp){
+    S.raf=null;if(!S.playing)return;
+    const dt=S.lastStamp===null?0:clamp((timestamp-S.lastStamp)/1000,0,.5);S.lastStamp=timestamp;
+    const entry=S.entries[S.index];let target=S.head+dt*S.speed;
+    if($('pause-endings').checked&&entry.frame.endings.length&&target>=entry.end&&S.autoPaused!==S.index){S.head=entry.end-.001;S.autoPaused=S.index;updateScene(dt*S.speed);pause();toast('已停在这一幕的结果。点播放继续。');return;}
+    if(target>=S.total){S.head=S.total;updateScene(dt*S.speed);finish();return;}
+    S.head=target;const nextIndex=indexAt(S.head);
+    if(nextIndex!==S.index){S.autoPaused=null;showFrame(nextIndex,true);}
+    updateScene(dt*S.speed);
+    if(timestamp-S.paintStamp>90){updateTransport();S.paintStamp=timestamp;}
+    S.raf=requestAnimationFrame(tick);
+  }
+  function seek(seconds,keepPlaying=false){const wasPlaying=S.playing;pause();begin();S.autoPaused=null;S.head=clamp(seconds,0,S.total);const index=indexAt(S.head);showFrame(index,false);updateTransport();if(S.head>=S.total)finish();else if(keepPlaying&&wasPlaying)play();}
+  function step(delta){if(delta>0&&S.index===S.entries.length-1){showEndings(current().track);return;}const index=clamp(S.index+delta,0,S.entries.length-1);const wasPlaying=S.playing;pause();begin();S.autoPaused=null;S.head=S.entries[index].start;showFrame(index,true);updateTransport();if(wasPlaying)play();else updateScene(2);}
+  function jump(id){const f=frameById.get(id);if(!f)return;if(!S.entries.some(e=>e.frame.id===id))setTrack(f.track,{started:true});const i=S.entries.findIndex(e=>e.frame.id===id);closeDialog();seek(S.entries[i].start);$('screen').focus({preventScroll:true});}
+
+  // Reference and ending views share the same verified dataset as the animation.
+  function dialogOpen(title,kicker,content,modal,keepHistory=false){
+    pause();const dialog=$('info-dialog');if(!dialog.open)S.returnFocus=document.activeElement;
+    if(keepHistory&&S.modal)S.modalHistory.push({...S.modal});else if(!keepHistory)S.modalHistory=[];
+    S.modal=modal;$('dialog-title').textContent=title;$('dialog-kicker').textContent=kicker;$('dialog-body').innerHTML=content;
+    if(!dialog.open){if(dialog.showModal)dialog.showModal();else dialog.setAttribute('open','');}
+    dialog.scrollTop=0;$('dialog-title').focus({preventScroll:true});
+  }
+  function closeDialog(){const d=$('info-dialog');if(d.close)d.close();else d.removeAttribute('open');S.modal=null;S.modalHistory=[];if(S.returnFocus&&S.returnFocus.isConnected&&S.returnFocus.focus)S.returnFocus.focus({preventScroll:true});}
+  function backDialog(){const m=S.modalHistory.pop();if(!m){showEndings();return;}const history=S.modalHistory.slice();if(m.type==='endings')showEndings(m.group,m.query);else if(m.type==='person')showPerson(m.name);else if(m.type==='catalog')showCatalog(m.track,m.query);else if(m.type==='chains')showChains();else showSource();S.modalHistory=history;}
+  function searchBox(placeholder,value=''){return `<div class="dialog-search"><label class="sr-only" for="dialog-search">${esc(placeholder)}</label><input type="search" id="dialog-search" placeholder="${esc(placeholder)}" value="${esc(value)}" autocomplete="off"></div>`;}
+  function showCatalog(track=S.track,query=''){
+    const tabs=D.tracks.map(t=>`<button type="button" class="${t.id===track?'active':''}" data-action="catalog-filter" data-track="${t.id}" aria-pressed="${t.id===track}">${esc(t.name)}</button>`).join('');
+    dialogOpen('剧情目录','按事件定位',`<p class="dialog-intro">点击一幕即可把播放条定位到那里。日期沿用原书的明确时间或相对时间；跨分支会切换叙事层。</p><div class="filter-tabs">${tabs}</div>${searchBox('搜索人物、地点、物品或事件',query)}<div id="catalog-results"></div>`,{type:'catalog',track,query});renderCatalogResults();
+  }
+  function matches(text,q){return !q||String(text).toLocaleLowerCase().includes(q.toLocaleLowerCase());}
+  function renderCatalogResults(){const m=S.modal;if(!m||m.type!=='catalog')return;const frames=D.frames.filter(f=>(m.track==='all'||f.track===m.track)&&matches([f.title,f.narration,f.result,f.date,...f.cast.map(c=>c.name),...f.locations.map(p=>p.name),...f.items].join(' '),m.query));$('catalog-results').innerHTML=`<p class="dialog-status">${frames.length} 幕${m.track==='all'?' · 此处含可单独播放的前传':''}</p><div class="catalog-grid">${frames.map(f=>`<button type="button" class="catalog-item ${f.id===current().id?'current':''}" data-action="jump" data-id="${f.id}"><span class="row"><small>${esc(trackById.get(f.track).short)} · ${esc(f.date)}</small><span class="badge ${f.endings.length?'gold':''}">${f.endings.length?'有阶段结果':esc(f.phase)}</span></span><h3>${esc(f.title)}</h3><p>${esc(f.result)}</p><small>${esc(f.locations.map(p=>p.name).join(' / '))}</small></button>`).join('')}</div>${frames.length?'':'<p class="no-results">没有找到匹配的事件，试试人物姓名或地点。</p>'}`;}
+  function bestFrame(name,track,refs=[]){
+    const pool=D.frames.filter(f=>f.track===(track==='unresolved'?'main':track));
+    let best=null,score=0;for(const f of pool){const ending=f.endings.some(e=>e.name===name);const overlaps=f.refs.filter(r=>refs.includes(r)).length;const has=f.cast.some(c=>c.name===name);const s=(ending?25:0)+overlaps*5+(has?2:0);if(s>0&&s>=score){score=s;best=f;}}
+    return best;
+  }
+  function endingCard(e,group){const f=bestFrame(e.name,group,e.refs);return `<article class="ending-card"><span class="badge ${esc(e.tone)}">${esc(toneNames[e.tone]||e.tone)}</span><h3>${esc(e.name)} <small class="ending-label">${esc(e.label)}</small></h3><p>${esc(e.text)}</p>${f?`<button type="button" class="text-button" data-action="jump" data-id="${f.id}">在动画中定位 · ${esc(f.title)} →</button>`:''}<div class="refs">${refButtons(e.refs)}</div></article>`;}
+  function showEndings(group='main',query=''){
+    if(!D.endings.groups.some(g=>g.id===group)&&group!=='characters')group='main';
+    const tabs=D.endings.groups.map(g=>`<button type="button" data-action="ending-filter" data-group="${g.id}" class="${g.id===group?'active':''}" aria-pressed="${g.id===group}">${esc(g.id==='unresolved'?'去向未明':trackById.get(g.id).short)} · ${g.endings.length}</button>`).join('')+`<button type="button" data-action="ending-filter" data-group="characters" class="${group==='characters'?'active':''}" aria-pressed="${group==='characters'}">全部人物 · ${D.endings.allCharacters.length}</button><button type="button" data-action="chains">两条因果回顾</button>`;
+    dialogOpen('全结局与人物去向','每一条叙事线，各有自己的结果',`<div class="filter-tabs">${tabs}</div>${searchBox(group==='characters'?'搜索全部人物、别名或最后记录':'搜索本分支的人物与结局',query)}<div id="ending-results"></div>`,{type:'endings',group,query});renderEndingResults();
+  }
+  function renderEndingResults(){const m=S.modal;if(!m||m.type!=='endings')return;
+    if(m.group==='characters') {const records=D.endings.allCharacters.filter(c=>matches([c.name,...c.aliases,c.identity,c.record].join(' '),m.query));$('ending-results').innerHTML=`<p class="dialog-intro">${D.endings.allCharacters.length} 条记录包含具名人物、无名人物组及动物。每条保留原作最后可确认的信息；“没有下文”不等于死亡。作者素材篇只按附录叙述收录。</p><p class="dialog-status">显示 ${records.length} 条</p><div class="character-list">${records.map(c=>`<article class="character-record"><div><h3><button type="button" class="text-button person-link" data-person="${esc(c.name)}">${esc(c.name)}</button></h3><small>${esc(trackById.get(c.layer)?.short||(c.layer==='meta'?'作者素材篇':c.layer))}</small>${c.aliases.length?`<div class="aliases">${esc(c.aliases.join(' / '))}</div>`:''}</div><div><p>${esc(c.record)}</p><div class="ref-row">${refButtons(c.refs)}</div></div></article>`).join('')}</div>${records.length?'':'<p class="no-results">没有找到这个名字，可以试试别名。</p>'}`;return;}
+    const g=D.endings.groups.find(g=>g.id===m.group), es=g.endings.filter(e=>matches(e.name+' '+e.label+' '+e.text,m.query));
+    $('ending-results').innerHTML=`<p class="dialog-intro">${esc(g.lead)}</p><p class="dialog-status">${es.length} 条结果</p><div class="ending-grid">${es.map(e=>endingCard(e,g.id)).join('')}</div>${es.length?'':'<p class="no-results">这个分支没有匹配记录，可切换“全部人物”查询最后状态。</p>'}`;
+  }
+  function showPerson(name){
+    const c=peopleByName.get(name),present=current().cast.find(p=>p.name===name);if(!c){toast('本幕中暂无独立人物档案。');return;}
+    const found=[];D.endings.groups.forEach(g=>g.endings.filter(e=>e.name===name).forEach(e=>found.push({e,g})));
+    let content=`<p class="dialog-intro">${esc(c.identity)}</p>${c.aliases.length?`<p class="dialog-status">别名：${esc(c.aliases.join(' / '))}</p>`:''}`;
+    if(present)content+=`<div class="current-record"><span class="badge ${esc(present.state)}">当前这幕 · ${esc(trackById.get(current().track).short)}</span><p><strong>${esc(current().date)} · ${esc(current().title)}</strong><br>${esc(stateNames[present.state])}，${esc(present.note)}。画面地点：${esc(current().locations.find(l=>l.id===present.at).name)}。</p></div>`;
+    content+=`<h3 class="detail-label">最后可确认的记录</h3><p class="detail-copy">${esc(c.record)}</p><div class="ref-row">${refButtons(c.refs)}</div>`;
+    if(found.length)content+='<h3 class="detail-label">各分支结局</h3><div class="ending-grid">'+found.map(({e,g})=>`<div><p class="dialog-status">${esc(g.title)}</p>${endingCard(e,g.id)}</div>`).join('')+'</div>';
+    dialogOpen(name,'人物档案 · 可包含完整剧透',content,{type:'person',name},true);
+  }
+  function showChains(){dialogOpen('两条事件因果回顾','从起因，看到结果',`<p class="dialog-intro">这些回顾把分散在章节中的选择与结果连起来；每一步可回到出处，人物结局仍以所在分支为准。</p>`+D.endings.chains.map(c=>`<section><h3>${esc(c.title)}</h3><div class="chain">${c.steps.map((s,i)=>`<article class="chain-step"><strong>0${i+1}</strong><h4>${esc(s.title)}</h4><p>${esc(s.text)}</p><div class="ref-row">${refButtons(s.refs)}</div></article>`).join('')}</div></section>`).join(''),{type:'chains'});}
+  function pdfControls(page){return `<div class="source-controls"><label for="source-pdf">选择同一底本 PDF：</label><input type="file" id="source-pdf" accept="application/pdf,.pdf"><button type="button" data-action="open-pdf" data-page="${page||1}">${S.pdfURL?'打开':'选好后打开'} PDF 第 ${page||1} 页</button></div><p class="dialog-status">PDF 只在本机打开，不上传；页面引用使用文件的物理页码。</p>`;}
+  function showUnit(key){const u=D.units[key];if(!u)return;const historyButton=S.modal?'<button type="button" class="text-button" data-action="back-dialog">← 返回刚才的档案</button>':'';dialogOpen(unitLabel(key)+' · '+u.title,'章节出处 / 阅读摘要',`${historyButton}<div class="current-record"><span class="badge">PDF 第 ${u.start}—${u.end} 页</span><p>${esc(u.summary)}</p></div><h3 class="detail-label">这一段的作用</h3><p class="detail-copy">${esc(u.turn||'见章节摘要与原文。')}</p><div class="source-box source-reader"><h3>核对原文</h3><p>底本：${esc(D.meta.source)}，共 ${D.meta.sourcePages} 页。以下页码是 PDF 页序，不是书页印刷页码。</p>${pdfControls(u.start)}</div>`,{type:'unit',key},true);}
+  function showSource(){
+    const issues=Array.isArray(D.ambiguities)?D.ambiguities:[];
+    dialogOpen('使用说明与底本','故事放映室',`<div class="source-box"><h3>如何观看</h3><p>点击“开始放映”，画面中的人物会随事件在地点间移动，关系线同步变化。可以暂停、拖动故事时间轴、切换速度、前后跳幕，或从“剧情目录”直接跳到某个事件。点击画面人物，可同时查看当前状态和各分支结局。</p><p>桌面键盘：空格播放 / 暂停，左右方向键切换事件。支持全屏、缩放和跟随人物；已打开档案时播放会暂停，关闭后由你决定继续。</p></div><div class="source-box"><h3>时间与叙事层</h3><ul><li>主时间轴按剧情密度展开，标签显示故事时间；00:00 计时显示放映进度，两个刻度用途不同。</li><li>全结局连播顺序：正文 → 正式莜莜外传 → 死后转生 → 幸福 IF。前传另行播放。转生篇回到2010年，不是正文时间连续向前。</li><li>回忆、梦境、失真记忆中的人物采用虚线与文字标记。已逝者为灰色。分幕中的多处地点可以是回顾性的并置，不表示人物实际相聚。</li><li>地点和移动路线为剧情示意，不按真实地理比例绘制；确切日子未写明时使用相对时间。</li></ul></div><div class="source-box"><h3>怎样理解“全结局”</h3><p>内含 ${D.meta.endingCount} 条主要人物分支结果、${D.meta.characterCount} 条人物与动物的最后记录，以及两条因果回顾。动画压缩正文与补充篇的关键发展，完整的次要人物记录可从“全部人物”搜索。原作未写出的后续保留为未明。</p><p>2016年4月4日按正文记作安葬日；幸福 IF 与正文分别记账，苏慕夕与莫语默属于不同分支。莫空的轮回、疑似人物对应及部分日期矛盾，未补成原作没有给出的解释。</p></div><div class="source-box"><h3>底本与出处</h3><p>《药娘的天空》 · ${esc(D.meta.author)} / ${esc(D.meta.contributors)}<br>${esc(D.meta.edition)} · ${esc(D.meta.source)}<br>正文 ${D.meta.mainChapters} 章，补充篇 ${D.meta.extras} 个单元，PDF 共 ${D.meta.sourcePages} 页。</p><p>这份页面提供整理摘要、剧情示意和章节定位。底本第19页标注 ${esc(D.meta.license)}；本改编整理沿用该许可，保留作者与贡献者署名。小说及附录涉及的医疗说法不作为现实操作依据。</p>${pdfControls(19)}</div><div class="source-box"><h3>离线与阅读</h3><p>页面由 HTML 与 story-screening-data-*.js 组成，剧情数据、图形和控制程序均随附。请保持这些文件在同一目录，然后用支持 JavaScript 的浏览器打开；在仅能预览文档的窗口中，播放按钮可能不运行。</p><p>页面不请求外部字体、图像或服务。选择 PDF 是可选的，只为了在本机核对原文；不会影响动画播放。</p></div>`,{type:'source'});
+  }
+  function toast(text){$('toast').textContent=text;$('toast').classList.remove('hidden');clearTimeout(S.toastTimer);S.toastTimer=setTimeout(()=>$('toast').classList.add('hidden'),3600);}
+  async function fullscreen(){try{if(document.fullscreenElement){await document.exitFullscreen();}else if($('app').requestFullscreen){await $('app').requestFullscreen();}else toast('这个阅读窗口不支持全屏，可以在浏览器中打开 HTML。');}catch{toast('当前窗口未能进入全屏；其余播放功能不受影响。');}}
+  function action(el){const a=el.dataset.action;
+    if(a==='start'||a==='play'){S.playing?pause():play();}
+    else if(a==='replay'){seek(0);play();}
+    else if(a==='next')step(1);else if(a==='previous')step(-1);
+    else if(a==='track')setTrack(el.dataset.track,{started:true});
+    else if(a==='catalog')showCatalog();else if(a==='catalog-filter')showCatalog(el.dataset.track);
+    else if(a==='endings')showEndings(current().track);else if(a==='ending-filter')showEndings(el.dataset.group);
+    else if(a==='source')showSource();else if(a==='chains')showChains();
+    else if(a==='jump')jump(el.dataset.id);else if(a==='unit')showUnit(el.dataset.key);
+    else if(a==='close-dialog')closeDialog();else if(a==='back-dialog')backDialog();
+    else if(a==='fullscreen')fullscreen();
+    else if(a==='zoom-in'||a==='zoom-out'){S.zoom=clamp(S.zoom+(a==='zoom-in'?.2:-.2),1,2);if(a==='zoom-out'&&S.zoom===1)S.follow='all';$('follow-person').value=S.follow;applyCamera();}
+    else if(a==='reset-camera'){S.zoom=1;S.follow='all';$('follow-person').value='all';applyCamera();}
+    else if(a==='open-pdf'){if(S.pdfURL)window.open(S.pdfURL+'#page='+Number(el.dataset.page),'_blank','noopener');else toast('请先选择最初上传的同一份 PDF。');}
+  }
+  document.addEventListener('click',e=>{const el=e.target.closest('[data-action],[data-person]');if(!el)return;if(el.dataset.person)showPerson(el.dataset.person);else action(el);});
+  document.addEventListener('input',e=>{
+    if(e.target.id==='timeline')seek(Number(e.target.value)/1000*S.total);
+    if(e.target.id==='dialog-search'&&S.modal){S.modal.query=e.target.value;if(S.modal.type==='catalog')renderCatalogResults();else if(S.modal.type==='endings')renderEndingResults();}
+  });
+  document.addEventListener('change',e=>{
+    if(e.target.id==='speed'){S.speed=Number(e.target.value);toast('播放速度 '+S.speed+'×');}
+    if(e.target.id==='follow-person'){S.follow=e.target.value;S.zoom=1;applyCamera();$('motion-caption').textContent=S.follow==='all'?current().locations.map(p=>p.name).join(' / '):'镜头跟随 '+S.follow;}
+    if(e.target.id==='source-pdf'){const file=e.target.files&&e.target.files[0];if(!file)return;if(!/\.pdf$/i.test(file.name)&&file.type!=='application/pdf'){toast('请选择 PDF 文件。');return;}if(S.pdfURL)URL.revokeObjectURL(S.pdfURL);S.pdfURL=URL.createObjectURL(file);toast('已在本机连接 PDF，可以打开引用页。');const b=$('dialog-body').querySelector('[data-action="open-pdf"]');if(b)b.textContent='打开 PDF 第 '+b.dataset.page+' 页';}
+  });
+  document.addEventListener('keydown',e=>{
+    const person=e.target.closest&&e.target.closest('[data-person]');if(person&&(e.key==='Enter'||e.key===' ')){e.preventDefault();showPerson(person.dataset.person);return;}
+    if($('info-dialog').open||/INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName)||e.target.isContentEditable)return;
+    if(e.code==='Space'||e.key===' '){e.preventDefault();S.playing?pause():play();}else if(e.key==='ArrowRight'){e.preventDefault();step(1);}else if(e.key==='ArrowLeft'){e.preventDefault();step(-1);}
+  });
+  $('info-dialog').addEventListener('cancel',()=>{S.modal=null;S.modalHistory=[];});
+  $('info-dialog').addEventListener('click',e=>{if(e.target===$('info-dialog')){const r=$('info-dialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog();}});
+  $('timeline-wrap').addEventListener('pointermove',e=>{const r=$('timeline-wrap').getBoundingClientRect();if(!r.width)return;const q=clamp((e.clientX-r.left)/r.width,0,1);const f=S.entries[indexAt(q*S.total)].frame;$('timeline-tooltip').innerHTML='<strong>'+esc(f.date)+'</strong>'+esc(f.title);$('timeline-tooltip').style.left=clamp(q*100,12,88)+'%';$('timeline-tooltip').classList.remove('hidden');});
+  $('timeline-wrap').addEventListener('pointerleave',()=>$('timeline-tooltip').classList.add('hidden'));
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
+  window.addEventListener('resize',()=>{const mobile=window.innerWidth<=700;if(mobile!==S.mobile){S.mobile=mobile;renderTimeline();drawScene(current(),null,false);}else applyCamera();});
+  document.addEventListener('fullscreenchange',()=>{$('fullscreen-btn').setAttribute('aria-label',document.fullscreenElement?'退出全屏':'进入全屏');});
+  setTrack('all');
+  $('intro-tip').textContent=`${S.entries.length} 幕 · 1× 约 ${Math.round(S.total/60)} 分钟 · 完整剧透`;
+  $('footer-coverage').textContent=`${D.frames.length} 幕剧情 · ${D.meta.endingCount} 条分支结果 · ${D.meta.characterCount} 条人物记录`;
+  // A small deterministic inspection surface supports offline verification without external services.
+  window.STORY_PLAYER=Object.freeze({getState:()=>({track:S.track,index:S.index,id:current().id,head:S.head,total:S.total,playing:S.playing,speed:S.speed,mobile:S.mobile,follow:S.follow,zoom:S.zoom,modal:S.modal&&S.modal.type}),seek,play,pause,setTrack,jump,step,showEndings,showCatalog,showPerson,showUnit,showSource,closeDialog,frames:D.frames,layout,advanceForInspection:seconds=>{seek(clamp(S.head+seconds,0,S.total));}});
+})();
+</script>
+</body></html>
